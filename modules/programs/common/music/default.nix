@@ -12,7 +12,7 @@
     colorcheme catppuccin
     bind -f common ^T push run opustags -s FIELD=VALUE -i {}
   '';
-  home.file.".config/cmus/catppuccin.theme" = ''
+  home.file.".config/cmus/catppuccin.theme".text = ''
     ### 'Catppuccin' theme for CMus (for 255 color terms)
     set color_cmdline_bg=default
     # Text Color White
