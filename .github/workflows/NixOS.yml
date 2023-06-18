@@ -10,18 +10,18 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Free Disk Space (Ubuntu)
-        uses: jlumbroso/free-disk-space@v1.2.0
+        uses: jlumbroso/free-disk-space@main
         with:
           # this might remove tools that are actually needed,
           # when set to "true" but frees about 6 GB
-          tool-cache: false
+          tool-cache: true
 
           # all of these default to true, but feel free to set to
           # "false" if necessary for your workflow
           android: true
           dotnet: true
           haskell: true
-          large-packages: true # this is erroring 2023-06-18
+          large-packages: false # this is erroring 2023-06-18
           swap-storage: true
 
       - name: "Create Dir for Mounting moar Disk Space ❄"
