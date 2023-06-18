@@ -57,7 +57,6 @@ in
       ./system.nix
     ] ++ [
       inputs.impermanence.nixosModules.impermanence
-      inputs.disko.nixosModules.disko
     ];
   };
 
