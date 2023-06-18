@@ -19,8 +19,8 @@ jobs:
           # all of these default to true, but feel free to set to
           # "false" if necessary for your workflow
           android: true
-          dotnet: true
-          haskell: true
+          dotnet: false # this is erroring 2023-06-18
+          haskell: false
           large-packages: true
           swap-storage: true
 
@@ -31,9 +31,9 @@ jobs:
         uses: easimon/maximize-build-space@v7
         with:
           build-mount-path: /nix
-          remove-dotnet: "true"
+          remove-dotnet: "false"
           remove-android: "true"
-          remove-haskell: "true"
+          remove-haskell: "false"
           temp-reserve-mb: "100"
           swap-size-mb: "4096"
           root-reserve-mb: "1024"
