@@ -10,7 +10,7 @@
   ./search
   ./yt-dlp
   ./zathura
-  ./kitty
+  ./foot
   ./tranmission
   ./bitcoin
 ]

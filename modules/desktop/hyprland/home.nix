@@ -168,8 +168,8 @@
       }
 
       bind = $mainMod, F1, exec, bash $HOME/.config/hypr/keybind
-      bind = $mainMod,Return, exec, kitty
-      bind = $mainMod SHIFT, Return, exec, kitty --class="termfloat"
+      bind = $mainMod,Return, exec, foot
+      bind = $mainMod SHIFT, Return, exec, foot --title="termfloat"
       bind = $mainMod, E, exec, nemo
       bind = $mainMod, Q, killactive,
       bind = $mainMod SHIFT, Q, exit,
