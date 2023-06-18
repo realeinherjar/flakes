@@ -84,7 +84,6 @@
       ### DESIGN CHANGES ###
       ######################
       
-      # NOTE: you can use vars with $<var> and ${<var>} as long as the str is double quoted: ""
       # WARNING: hex colors can't contain capital letters
       # --> Catppuccin (Mocha)
       thm_bg="#1e1e2e"
