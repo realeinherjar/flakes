@@ -4,6 +4,7 @@
     btop = {
       settings = {
         color_theme = "catppuccin_mocha";
+        vim_keys = true;
       };
     };
   };
