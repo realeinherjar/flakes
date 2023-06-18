@@ -7,11 +7,11 @@ let
   wallpaper_random = pkgs.writeShellScriptBin "wallpaper_random" ''
     if command -v swww >/dev/null 2>&1; then 
         killall dynamic_wallpaper
-        swww img $(find ~/Pictures/wallpaper/. -name "*.png" | shuf -n1) --transition-type random
+        swww img $(find ~/wallpaper/. -name "*.png" | shuf -n1) --transition-type random
     else 
         killall swaybg
         killall dynamic_wallpaper
-        swaybg -i $(find ~/Pictures/wallpaper/. -name "*.png" | shuf -n1) -m fill &
+        swaybg -i $(find ~/wallpaper/. -name "*.png" | shuf -n1) -m fill &
     fi
   '';
   myswaylock = pkgs.writeShellScriptBin "myswaylock" ''
@@ -33,11 +33,11 @@ let
   '';
   dynamic_wallpaper = pkgs.writeShellScriptBin "dynamic_wallpaper" ''
     if command -v swww >/dev/null 2>&1; then 
-        swww img $(find ~/Pictures/wallpaper/. -name "*.png" | shuf -n1) --transition-type random
+        swww img $(find ~/wallpaper/. -name "*.png" | shuf -n1) --transition-type random
         OLD_PID=$!
         while true; do
             sleep 120
-        swww img $(find ~/Pictures/wallpaper/. -name "*.png" | shuf -n1) --transition-type random
+        swww img $(find ~/wallpaper/. -name "*.png" | shuf -n1) --transition-type random
             NEXT_PID=$!
             sleep 5
             kill $OLD_PID
@@ -45,11 +45,11 @@ let
         done
     elif command -v swaybg >/dev/null 2>&1; then  
         killall swaybg
-        swaybg -i $(find ~/Pictures/wallpaper/. -name "*.png" | shuf -n1) -m fill &
+        swaybg -i $(find ~/wallpaper/. -name "*.png" | shuf -n1) -m fill &
         OLD_PID=$!
         while true; do
             sleep 120
-            swaybg -i $(find ~/Pictures/wallpaper/. -name "*.png" | shuf -n1) -m fill &
+            swaybg -i $(find ~/wallpaper/. -name "*.png" | shuf -n1) -m fill &
             NEXT_PID=$!
             sleep 5
             kill $OLD_PID
@@ -57,11 +57,11 @@ let
         done
     else 
         killall feh 
-        feh --randomize --bg-fill $(find ~/Pictures/wallpaper/. -name "*.png" | shuf -n1) &
+        feh --randomize --bg-fill $(find ~/wallpaper/. -name "*.png" | shuf -n1) &
         OLD_PID=$!
         while true; do
             sleep 120
-            feh --randomize --bg-fill $(find ~/Pictures/wallpaper/. -name "*.png" | shuf -n1) &
+            feh --randomize --bg-fill $(find ~/wallpaper/. -name "*.png" | shuf -n1) &
             NEXT_PID=$!
             sleep 5
             kill $OLD_PID
