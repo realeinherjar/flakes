@@ -17,6 +17,7 @@
     fzf = {
       enable = true;
       enableFishIntegration = true;
+      tmux.enableShellIntegration = true;
     };
     bat = {
       enable = true;
