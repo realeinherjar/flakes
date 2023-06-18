@@ -169,7 +169,7 @@
 
       bind = $mainMod, F1, exec, bash $HOME/.config/hypr/keybind
       #bind = $mainMod,Return, exec, foot
-      bind = $mainMod,Return, exec, foot -e tmux new -As0
+      bind = $mainMod,Return, exec, foot -e tmux new -As0 
       bind = $mainMod SHIFT, Return, exec, foot --app-id="termfloat"
       bind = $mainMod, E, exec, nemo
       bind = $mainMod, Q, killactive,
