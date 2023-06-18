@@ -47,5 +47,17 @@ in
       }
     ];
   };
+  laptop-minimal = lib.nixosSystem {
+    # Laptop-minimal profile
+    inherit system;
+    specialArgs = { inherit inputs user; };
+    modules = [
+      ./laptop-minimal
+    ] ++ [
+      ./system.nix
+    ] ++ [
+      inputs.impermanence.nixosModules.impermanence
+    ];
+  };
 
 }
