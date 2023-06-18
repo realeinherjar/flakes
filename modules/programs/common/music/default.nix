@@ -9,7 +9,7 @@
     ];
   };
   home.file.".config/cmus/rc".text = ''
-    colorcheme catppuccin
+    colorscheme catppuccin
     bind -f common ^T push run opustags -s FIELD=VALUE -i {}
   '';
   home.file.".config/cmus/catppuccin.theme".text = ''
