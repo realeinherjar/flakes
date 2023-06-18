@@ -19,9 +19,9 @@ jobs:
           # all of these default to true, but feel free to set to
           # "false" if necessary for your workflow
           android: true
-          dotnet: false # this is erroring 2023-06-18
-          haskell: false
-          large-packages: true
+          dotnet: true
+          haskell: true
+          large-packages: true # this is erroring 2023-06-18
           swap-storage: true
 
       - name: "Create Dir for Mounting moar Disk Space ❄"
@@ -31,9 +31,9 @@ jobs:
         uses: easimon/maximize-build-space@v7
         with:
           build-mount-path: /nix
-          remove-dotnet: "false"
+          remove-dotnet: "true"
           remove-android: "true"
-          remove-haskell: "false"
+          remove-haskell: "true"
           temp-reserve-mb: "100"
           swap-size-mb: "4096"
           root-reserve-mb: "1024"
