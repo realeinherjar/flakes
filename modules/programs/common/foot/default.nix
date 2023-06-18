@@ -7,6 +7,7 @@
         settings = {
           main = {
             font = "JetBrains Mono Nerd Font:size=12";
+            dpi-aware = "no";
             bold-text-in-bright = "yes";
             initial-window-mode = "maximized";
           };

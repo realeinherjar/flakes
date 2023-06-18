@@ -3,6 +3,5 @@
   ./btop
   ./cava
   ./rofi
-  ./kitty
   ./fish
 ]
