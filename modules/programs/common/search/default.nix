@@ -21,17 +21,14 @@
     bat = {
       enable = true;
       config = {
-        plain = true;
-        italic_text = true;
+        italic-text = "always";
         theme = "catppuccin";
       };
       themes = {
-        catppuccin = builtins.readFile (pkgs.fetchFromGitHub {
-          owner = "catppuccin";
-          repo = "bat";
-          rev = "477622171ec0529505b0ca3cada68fc9433648c6";
+        catppuccin = builtins.readFile (pkgs.fetchurl {
+          url = "https://github.com/catppuccin/bat/raw/main/Catppuccin-mocha.tmTheme";
           sha256 = "a8c40d2466489a68ebab3cbb222124639221bcf00c669ab45bab242cbb2783fc";
-        } + "/Catppuccin-mocha.tmTheme");
+        });
       };
     };
     zoxide = {
