@@ -84,6 +84,7 @@
       cryptomator
       wireguard-tools
       openresolv
+      mullvad
       sc-im
       qpdf
       pandoc
