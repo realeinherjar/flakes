@@ -38,12 +38,21 @@
   security.rtkit.enable = true;
 
   services = {
+    dbus.enable = true;
+    locate = {
+      enable = true;
+      prunePaths = [ "/tmp" "/var/cache" "/var/lock" "/var/run" "/var/spool" ];
+      interval = "hourly";
+      locate = pkgs.mlocate;
+      localuser = null;
+    };
     openssh = {
       enable = false;
     };
     fstrim.enable = true;
     fwupd.enable = true;
     tor.enable = true;
+    mullvad-vpn.enable = true;
   };
 
   environment = {
@@ -125,18 +134,6 @@
         mode = "0400";
       };
     };
-  };
-
-  services = {
-    dbus.enable = true;
-    locate = {
-      enable = true;
-      prunePaths = [ "/tmp" "/var/cache" "/var/lock" "/var/run" "/var/spool" ];
-      interval = "hourly";
-      locate = pkgs.mlocate;
-      localuser = null;
-    };
-    services.mullvad-vpn.enable = true;
   };
 
   nix = {
