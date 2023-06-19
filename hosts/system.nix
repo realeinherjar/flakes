@@ -12,6 +12,10 @@
     networkmanager.enable = true;
     wireguard.enable = true;
     iproute2.enable = true; # Needed for mullvad daemon
+    stevenblack = {
+      enable = true;
+      block = [ "fakenews" ];
+    };
     #hosts = {
     #  "185.199.109.133" = [ "raw.githubusercontent.com" ];
     #  "185.199.111.133" = [ "raw.githubusercontent.com" ];
