@@ -120,15 +120,54 @@
       };
     };
   };
-  services.dbus.enable = true;
-  services.locate = {
-    enable = true;
-    prunePaths = [ "/tmp" "/var/cache" "/var/lock" "/var/run" "/var/spool" ];
-    interval = "hourly";
-    locate = pkgs.mlocate;
-    localuser = null;
+  services = {
+    dbus.enable = true;
+    locate = {
+      enable = true;
+      prunePaths = [ "/tmp" "/var/cache" "/var/lock" "/var/run" "/var/spool" ];
+      interval = "hourly";
+      locate = pkgs.mlocate;
+      localuser = null;
+    };
   };
 
+  systemd.services = {
+    "mullvad-daemon.service" = {
+      enable = true;
+      description = "Mullvad VPN Daemon";
+      before = [ "network-online.target" ];
+      after = [
+        "mullvad-early-boot-blocking.service"
+        "NetworkManager.service"
+        "systemd-resolved.service"
+      ];
+      startLimitBurst = 5;
+      startLimitIntervalSec = 20;
+      unitConfig = {
+          RequiresMountsFor = "${pkgs.mullvad}/opt/Mullvad VPN/resources/"
+        };
+      serviceConfig = {
+        Restart = "always";
+        RestartSec = 1;
+        ExecStart = "${pkgs.mullvad}/bin/mullvad-daemon -v --disable-stdout-timestamps";
+        Environment = "MULLVAD_RESOURCE_DIR=${pkgs.mullvad}/opt/Mullvad VPN/resources/";
+      };
+      wantedBy = [ "multi-user.target" ];
+    };
+    "mullvad-early-boot-blocking.service" = {
+      enable = true;
+      description = "Mullvad early boot network blocker";
+      be = [ "basic.target" "mullvad-daemon.service" ];
+      unitConfig = {
+        DefaultDependencies = "no";
+      };
+      serviceConfig = {
+        Type = "oneshot";
+        ExecStart = "${pkgs.mullvad}/bin/mullvad-daemon --initialize-early-boot-firewall";
+      };
+      wantedBy = [ "mullvad-daemon.service" ];
+    };
+  };
   nix = {
     settings = {
 

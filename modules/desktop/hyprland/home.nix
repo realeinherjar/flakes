@@ -276,8 +276,8 @@
       #------------------------# 
       bind=$mainMod,B,exec,firefox
       bind=$mainMod SHIFT,X,exec,myswaylock
-      bind=,Print,exec, grimblast --notify --cursor  copy area
-      bind=SHIFT,Print,exec, grimblast --notify --cursor  copysave area ~/$(date "+%Y-%m-%d"T"%H:%M:%S").png
+      bind=,Print,exec, grimblast --notify --cursor copy area
+      bind=SHIFT,Print,exec, grimblast --notify --cursor copysave area ~/$(date "+%Y-%m-%d"T"%H:%M:%S").png
       bind=$mainMod,D,exec, pkill rofi || ~/.config/rofi/launcher.sh
       bind=$mainMod SHIFT,D,exec, bash ~/.config/rofi/powermenu.sh
 
