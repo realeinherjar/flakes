@@ -23,7 +23,7 @@ in
       inputs.hyprland.nixosModules.default
       inputs.sops-nix.nixosModules.sops
       inputs.home-manager.nixosModules.home-manager
-      inputs.hosts.nixosModules.options.networking.stevenBlackHosts
+      inputs.hosts.nixosModule.options.networking.stevenBlackHosts
       {
         home-manager = {
           useGlobalPkgs = true;
