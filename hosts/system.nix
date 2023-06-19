@@ -10,7 +10,7 @@
   networking = {
     hostName = "laptop"; # Define your hostname.
     networkmanager.enable = true;
-    networking.wireguard.enable = true;
+    wireguard.enable = true;
     iproute2.enable = true; # Needed for mullvad daemon
     #hosts = {
     #  "185.199.109.133" = [ "raw.githubusercontent.com" ];
