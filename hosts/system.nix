@@ -10,6 +10,8 @@
   networking = {
     hostName = "laptop"; # Define your hostname.
     networkmanager.enable = true;
+    wireguard.enable = true;
+    iproute2.enable = true; # Needed for mullvad daemon
     #hosts = {
     #  "185.199.109.133" = [ "raw.githubusercontent.com" ];
     #  "185.199.111.133" = [ "raw.githubusercontent.com" ];
@@ -28,19 +30,31 @@
       };
 
   };
+
   time.timeZone = "America/Sao_Paulo";
 
   i18n.defaultLocale = "en_US.UTF-8";
 
   security.rtkit.enable = true;
+
   services = {
+    dbus.enable = true;
+    locate = {
+      enable = true;
+      prunePaths = [ "/tmp" "/var/cache" "/var/lock" "/var/run" "/var/spool" ];
+      interval = "hourly";
+      locate = pkgs.mlocate;
+      localuser = null;
+    };
     openssh = {
       enable = false;
     };
     fstrim.enable = true;
     fwupd.enable = true;
     tor.enable = true;
+    mullvad-vpn.enable = true;
   };
+
   environment = {
     binsh = "${pkgs.dash}/bin/dash";
     shells = with pkgs; [ fish ];
@@ -94,7 +108,7 @@
       cryptomator
       wireguard-tools
       openresolv
-      mullvad
+      mullvad-vpn
       sc-im
       qpdf
       pandoc
@@ -121,54 +135,7 @@
       };
     };
   };
-  services = {
-    dbus.enable = true;
-    locate = {
-      enable = true;
-      prunePaths = [ "/tmp" "/var/cache" "/var/lock" "/var/run" "/var/spool" ];
-      interval = "hourly";
-      locate = pkgs.mlocate;
-      localuser = null;
-    };
-  };
 
-  systemd.services = {
-    "mullvad-daemon" = {
-      enable = true;
-      description = "Mullvad VPN Daemon";
-      before = [ "network-online.target" ];
-      after = [
-        "mullvad-early-boot-blocking.service"
-        "NetworkManager.service"
-        "systemd-resolved.service"
-      ];
-      startLimitBurst = 5;
-      startLimitIntervalSec = 20;
-      unitConfig = {
-          RequiresMountsFor = "${pkgs.mullvad}/opt/Mullvad VPN/resources/";
-        };
-      serviceConfig = {
-        Restart = "always";
-        RestartSec = 1;
-        ExecStart = "${pkgs.mullvad}/bin/mullvad-daemon -v --disable-stdout-timestamps";
-        Environment = "MULLVAD_RESOURCE_DIR=${pkgs.mullvad}/opt/Mullvad VPN/resources/";
-      };
-      wantedBy = [ "multi-user.target" ];
-    };
-    "mullvad-early-boot-blocking" = {
-      enable = true;
-      description = "Mullvad early boot network blocker";
-      before = [ "basic.target" "mullvad-daemon.service" ];
-      unitConfig = {
-        DefaultDependencies = "no";
-      };
-      serviceConfig = {
-        Type = "oneshot";
-        ExecStart = "${pkgs.mullvad}/bin/mullvad-daemon --initialize-early-boot-firewall";
-      };
-      wantedBy = [ "mullvad-daemon.service" ];
-    };
-  };
   nix = {
     settings = {
 
