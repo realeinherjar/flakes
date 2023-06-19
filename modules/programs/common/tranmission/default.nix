@@ -6,5 +6,4 @@
       transmission-gtk
     ];
   };
-  # networking.firewall.allowedTCPPorts = [ 51413 ];
 }
