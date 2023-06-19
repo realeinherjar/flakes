@@ -65,7 +65,7 @@ in
       ./system.nix
     ] ++ [
       inputs.impermanence.nixosModules.impermanence
-      inputs.hosts.nixosModules.options.networking.stevenBlackHosts
+      inputs.hosts.nixosModule.options.networking.stevenBlackHosts
       {
         stevenBlackHosts = {
           enable = true;
