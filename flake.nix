@@ -61,6 +61,7 @@
       hypr-contrib.url = "github:hyprwm/contrib";
       flake-parts.url = "github:hercules-ci/flake-parts";
       sops-nix.url = "github:Mic92/sops-nix";
+      hosts.url = "github:StevenBlack/hosts";
       hyprland = {
         url = "github:hyprwm/Hyprland";
         inputs.nixpkgs.follows = "nixpkgs";

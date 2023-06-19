@@ -23,6 +23,7 @@ in
       inputs.hyprland.nixosModules.default
       inputs.sops-nix.nixosModules.sops
       inputs.home-manager.nixosModules.home-manager
+      inputs.hosts.nixosModules.options.networking.stevenBlackHosts
       {
         home-manager = {
           useGlobalPkgs = true;
@@ -44,6 +45,13 @@ in
               inputs.rust-overlay.overlays.default
             ];
         };
+        stevenBlackHosts = {
+          enable = true;
+          blockFakenews = true;
+          blockGambling = false;
+          blockPorn = false;
+          blockSocial = false;
+        };
       }
     ];
   };
@@ -57,6 +65,16 @@ in
       ./system.nix
     ] ++ [
       inputs.impermanence.nixosModules.impermanence
+      inputs.hosts.nixosModules.options.networking.stevenBlackHosts
+      {
+        stevenBlackHosts = {
+          enable = true;
+          blockFakenews = true;
+          blockGambling = false;
+          blockPorn = false;
+          blockSocial = false;
+        };
+      }
     ];
   };
 
