@@ -69,5 +69,6 @@
         url = "github:nix-community/home-manager";
         inputs.nixpkgs.follows = "nixpkgs";
       };
+      joshuto.url = "github:kamiyaa/joshuto";
     };
 }

@@ -78,7 +78,6 @@
       p7zip
       atool
       unzip
-      joshuto
       ffmpeg
       ffmpegthumbnailer
       glib

@@ -10,7 +10,6 @@
       exa
       mediainfo
       exiftool
-      file
     ];
   };
   programs = {
