@@ -16,7 +16,16 @@
     #  "185.199.110.133" = [ "raw.githubusercontent.com" ];
     #  "185.199.108.133" = [ "raw.githubusercontent.com" ];
     # };
-    firewall.enable = true;
+    firewall = {
+        enable = true;
+        allowedTCPPorts = [
+          51413 # transmission
+        ];
+        allowedUDPPorts = [
+          51413 # transmission
+        ];
+      };
+
   };
   time.timeZone = "America/Sao_Paulo";
 
