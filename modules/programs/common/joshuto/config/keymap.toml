@@ -1,36 +1,4 @@
-"cursor_move_up" },
-  { keys = ["arrow_down"], command = "cursor_move_down" },
-  { keys = ["home"], command = "cursor_move_home" },
-  { keys = ["end"], command = "cursor_move_end" },
-
-  # vim-like keybindings
-  { keys = ["j"], command = "cursor_move_down" },
-  { keys = ["k"], command = "cursor_move_up" },
-  { keys = ["g", "g"], command = "cursor_move_home" },
-  # vim-like keybindings
-  { keys = ["j"], command = "cursor_move_down" },
-  { keys = ["k"], command = "cursor_move_up" },
-  { keys = ["g", "g"], command = "cursor_move_home" },
-  { keys = ["G"], command = "cursor_move_end" },
-
-  { keys = ["w"], command = "show_tasks" },
-  { keys = ["escape"], command = "show_tasks" },
-]{ keys = ["G"], command = "cursor_move_end" },
-
-  { keys = ["w"], command = "show_tasks" },
-  { keys = ["escape"], command = "show_tasks" },
-]
-
-[help_view]
-
-keymap = [
-  # arrow keys
-  { keys = ["arrow_up"], command = "cursor_move_up" },
-  { keys = ["arrow_down"], command = "cursor_move_down" },
-  { keys = ["home"], command = "cursor_move_home" },
-  { keys = ["end"], command = "cursor_move_end" },
-
-  [default_view]
+[default_view]
 
 keymap = [
   { keys = ["escape"], command = "escape" },
@@ -168,4 +136,36 @@ keymap = [
 
 keymap = [
   # arrow keys
-  { keys = ["arrow_up"], command = 
+  { keys = ["arrow_up"], command = "cursor_move_up" },
+  { keys = ["arrow_down"], command = "cursor_move_down" },
+  { keys = ["home"], command = "cursor_move_home" },
+  { keys = ["end"], command = "cursor_move_end" },
+
+  # vim-like keybindings
+  { keys = ["j"], command = "cursor_move_down" },
+  { keys = ["k"], command = "cursor_move_up" },
+  { keys = ["g", "g"], command = "cursor_move_home" },
+  { keys = ["G"], command = "cursor_move_end" },
+
+  { keys = ["w"], command = "show_tasks" },
+  { keys = ["escape"], command = "show_tasks" },
+]
+
+[help_view]
+
+keymap = [
+  # arrow keys
+  { keys = ["arrow_up"], command = "cursor_move_up" },
+  { keys = ["arrow_down"], command = "cursor_move_down" },
+  { keys = ["home"], command = "cursor_move_home" },
+  { keys = ["end"], command = "cursor_move_end" },
+
+  # vim-like keybindings
+  { keys = ["j"], command = "cursor_move_down" },
+  { keys = ["k"], command = "cursor_move_up" },
+  { keys = ["g", "g"], command = "cursor_move_home" },
+  { keys = ["G"], command = "cursor_move_end" },
+
+  { keys = ["w"], command = "show_tasks" },
+  { keys = ["escape"], command = "show_tasks" },
+]
