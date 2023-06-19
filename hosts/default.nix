@@ -45,13 +45,6 @@ in
               inputs.rust-overlay.overlays.default
             ];
         };
-        stevenBlackHosts = {
-          enable = true;
-          blockFakenews = true;
-          blockGambling = false;
-          blockPorn = false;
-          blockSocial = false;
-        };
       }
     ];
   };

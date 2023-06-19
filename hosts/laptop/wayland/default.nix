@@ -168,4 +168,11 @@
     '';
   };
 
+  stevenBlackHosts = {
+    enable = true;
+    blockFakenews = true;
+    blockGambling = false;
+    blockPorn = false;
+    blockSocial = false;
+  };
 }
