@@ -132,7 +132,7 @@
   };
 
   systemd.services = {
-    "mullvad-daemon.service" = {
+    "mullvad-daemon" = {
       enable = true;
       description = "Mullvad VPN Daemon";
       before = [ "network-online.target" ];
@@ -154,7 +154,7 @@
       };
       wantedBy = [ "multi-user.target" ];
     };
-    "mullvad-early-boot-blocking.service" = {
+    "mullvad-early-boot-blocking" = {
       enable = true;
       description = "Mullvad early boot network blocker";
       before = [ "basic.target" "mullvad-daemon.service" ];
