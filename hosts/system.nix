@@ -19,6 +19,7 @@
     firewall = {
         enable = true;
         allowedTCPPorts = [
+          443 # mullvad-daemon
           51413 # transmission
         ];
         allowedUDPPorts = [
