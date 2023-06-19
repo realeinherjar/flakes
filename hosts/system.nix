@@ -144,7 +144,7 @@
       startLimitBurst = 5;
       startLimitIntervalSec = 20;
       unitConfig = {
-          RequiresMountsFor = "${pkgs.mullvad}/opt/Mullvad VPN/resources/"
+          RequiresMountsFor = "${pkgs.mullvad}/opt/Mullvad VPN/resources/";
         };
       serviceConfig = {
         Restart = "always";
