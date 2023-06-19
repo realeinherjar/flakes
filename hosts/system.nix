@@ -157,7 +157,7 @@
     "mullvad-early-boot-blocking.service" = {
       enable = true;
       description = "Mullvad early boot network blocker";
-      be = [ "basic.target" "mullvad-daemon.service" ];
+      before = [ "basic.target" "mullvad-daemon.service" ];
       unitConfig = {
         DefaultDependencies = "no";
       };
