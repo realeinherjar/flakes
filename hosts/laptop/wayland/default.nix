@@ -59,6 +59,10 @@
       "usbcore.quirks=0bda:8156:k" # framework ethernet port not responding after sleep
     ];
     blacklistedKernelModules = [
+      # Bluetooth
+      "btusb"
+      "bnep"
+      "bluetooth"
       "hid_sensor_hub" # give me back by brightness keys
     ];
     consoleLogLevel = 0;
