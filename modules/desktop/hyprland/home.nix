@@ -41,7 +41,7 @@
         kb_layout = us
         kb_variant = colemak
         kb_model =
-        kb_options = caps:escape
+        # kb_options = caps:escape # solved by keyd
         kb_rules =
         repeat_delay = 200
         repeat_rate = 30
