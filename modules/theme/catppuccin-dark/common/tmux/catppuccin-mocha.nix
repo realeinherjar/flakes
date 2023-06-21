@@ -1,6 +1,4 @@
-# WARNING: hex colors can't contain capital letters
-
-# --> Catppuccin (Mocha)
+''
 thm_bg="#1e1e2e"
 thm_fg="#cdd6f4"
 thm_cyan="#89dceb"
@@ -14,3 +12,4 @@ thm_yellow="#f9e2af"
 thm_blue="#89b4fa"
 thm_orange="#fab387"
 thm_black4="#585b70"
+'';

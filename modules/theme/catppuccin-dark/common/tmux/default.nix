@@ -1,7 +1,7 @@
-{ lib, pkgs, user, ... }:
+{ config, pkgs, ... }:
 
 {
-  home.file.".config/tmux/catppuccin.tmux".text = import ./catppuccin.tmux;
-  home.file.".config/tmux/catppuccin-mocha.tmuxtheme".text = import ./catppuccin-mocha.tmuxtheme;
+  home.file.".config/tmux/catppuccin.tmux".source = ./catppuccin.nix;
+  home.file.".config/tmux/catppuccin-mocha.tmuxtheme".source = ./catppuccin-mocha.nix;
 }
 
