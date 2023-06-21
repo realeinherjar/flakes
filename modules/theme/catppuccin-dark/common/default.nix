@@ -4,4 +4,5 @@
   ./cava
   ./rofi
   ./fish
+  ./tmux
 ]
