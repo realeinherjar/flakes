@@ -90,9 +90,6 @@
       ### STATUS BAR     ###
       ######################
       set -g status-interval 1
-      # uptime
-      #set-option -ag status-right "#[fg=#b8bb26,bg=default]#(uptime | awk -F, '{sub(\".*up \",x,$1); print $1}')"
-      set-option -ag status-right "#[fg=#b8bb26,bg=default] up:#(uptime | cut -f 4-5 -d ' ' | cut -f 1 -d ',')"
       '';
     };
   };

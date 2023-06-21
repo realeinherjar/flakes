@@ -127,12 +127,13 @@
       grim
       simple-mtpfs
       brightnessctl
+      keyd
     ];
   };
 
   services.xserver = {
     layout = "us";
-    xkbVariant = "altgr-intl";
+    xkbVariant = "colemak";
     xkbOptions = "caps:escape";
     autoRepeatDelay = 200;
     autoRepeatInterval = 30;
@@ -151,6 +152,15 @@
       jack.enable = true;
     };
     tor.client.enable = true;
+    keyd = {
+      enable = true;
+      settings = {
+        main = {
+          # Maps capslock to escape when pressed and control when held
+          capslock = "overload(control, esc)";
+        };
+      };
+    };
   };
 
   security.rtkit.enable = true;
