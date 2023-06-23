@@ -6,7 +6,7 @@
       SHELL = "fish";
       EDITOR = "nvim";
       BROWSER = "firefox";
-      TERMINAL = "kitty";
+      TERMINAL = "foot";
       QT_QPA_PLATFORMTHEME = "gtk3";
       QT_SCALE_FACTOR = "1";
       MOZ_ENABLE_WAYLAND = "1";
@@ -28,6 +28,7 @@
     sessionPath = [
       "$HOME/.npm-global/bin"
       "$HOME/.local/bin"
+      "$HOME/.cargo/bin"
     ];
     file.".config/hypr/keybind".source = ../desktop/hyprland/keybind;
   };
