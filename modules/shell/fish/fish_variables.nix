@@ -37,5 +37,5 @@ SETUVAR fish_pager_color_prefix:normal\x1e\x2d\x2dbold\x1e\x2d\x2dunderline
 SETUVAR fish_pager_color_progress:brwhite\x1e\x2d\x2dbackground\x3dcyan
 SETUVAR fish_pager_color_selected_background:\x2d\x2dbackground\x3dbrblack
 
-SETUVAR fish_user_paths:/home/einherjar/\x2enpm\x2dglobal/bin
+SETUVAR fish_user_paths:/home/einherjar/\x2enpm\x2dglobal/bin\x1e/home/einherjar/\x2ecargo/bin\x1e/home/einherjar/\x2elocal/share/nvim/mason/bin
 ''
