@@ -77,15 +77,16 @@
       users.${user} = {
         directories = [
           ".cache"
-          ".npm-global"
           ".config"
+          ".local"
+          ".cargo"
+          ".npm-global"
           { directory = ".gnupg"; mode = "0700"; }
           { directory = ".ssh"; mode = "0700"; }
-          ".local"
           ".mozilla"
           "git"
           "dev"
-          ".cargo"
+          "music"
         ];
         files = [
           # put files here
