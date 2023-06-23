@@ -20,5 +20,5 @@
   home.stateVersion = "23.05";
 
   # Wallpapers
-  home.file."Pictures/wallpaper".source = ./wallpaper;
+  home.file."wallpaper".source = ./wallpaper;
 }
