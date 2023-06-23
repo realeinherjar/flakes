@@ -75,6 +75,7 @@
         "/etc/nixos" # bind mounted from /nix/persist/etc/nixos to /etc/nixos
         "/etc/NetworkManager/system-connections"
         "/etc/wireguard"
+        "/etc/mullvad-vpn"
         "/var/log"
         "/var/lib"
       ];
