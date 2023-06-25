@@ -115,8 +115,10 @@ Read more about this in the [NixOs Paranoid Guide](https://xeiaso.net/blog/paran
    ```bash
    # update the specified input
    nix flake lock --update-input <foo> <foo>
-   # or,update all inputs
+   # or update all inputs
    nix flake update
+   # also you can reclaim storage with
+   nix-collect-garbage -d
    ```
 
 1. Then, rebuild and switch to the system after rebuild:
