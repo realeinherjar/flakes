@@ -19,4 +19,4 @@ function __ssh_agent_is_started -d "check if ssh agent is already started"
 		return 1
 	end
 end
-'';
+''
