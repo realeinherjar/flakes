@@ -19,6 +19,7 @@
   home.file.".config/fish/functions/r.fish".text = import ./functions/r.nix;
   home.file.".config/fish/functions/ls.fish".text = import ./functions/ls.nix;
   home.file.".config/fish/functions/nf.fish".text = import ./functions/nf.nix;
+  home.file.".config/fish/functions/ssh-agent.fish".text = import ./functions/ssh-agent.nix;
   home.file.".config/fish/functions/owf.fish".text = import ./functions/owf.nix;
   home.file.".config/fish/functions/vi.fish".text = import ./functions/vi.nix;
   home.file.".config/fish/functions/testtor.fish".text = import ./functions/testtor.nix;
