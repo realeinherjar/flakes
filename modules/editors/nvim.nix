@@ -30,6 +30,7 @@
       nil
       pyright
       rust-analyzer
+      taplo
       texlab
       nodePackages_latest.typescript-language-server
       typst-lsp
