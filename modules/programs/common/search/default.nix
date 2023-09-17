@@ -38,5 +38,6 @@
       enable = true;
       enableFishIntegration = true;
     };
+    yazi = { enable = true; };
   };
 }

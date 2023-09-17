@@ -76,7 +76,6 @@
       p7zip
       atool
       unzip
-      yazi
       ffmpeg
       ffmpegthumbnailer
       glib
