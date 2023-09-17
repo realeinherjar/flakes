@@ -7,7 +7,7 @@
       tree
       fd
       ripgrep
-      exa
+      eza
       mediainfo
       exiftool
       file

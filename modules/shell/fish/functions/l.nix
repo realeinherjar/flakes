@@ -1,5 +1,5 @@
 ''
   function l
-      ls -ahl $argv
+      eza -ahl $argv
   end
 ''
