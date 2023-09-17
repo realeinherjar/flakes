@@ -7,7 +7,7 @@
       tree
       fd
       ripgrep
-      exa
+      eza
       mediainfo
       exiftool
       file
@@ -38,6 +38,6 @@
       enable = true;
       enableFishIntegration = true;
     };
-    # yazi = { enable = true; };
+    yazi = { enable = true; };
   };
 }

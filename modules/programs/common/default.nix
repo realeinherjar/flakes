@@ -11,4 +11,5 @@
   ./zathura
   ./foot
   ./transmission
+  ./just
 ]
