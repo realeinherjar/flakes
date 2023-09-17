@@ -161,10 +161,15 @@
     tor.client.enable = true;
     keyd = {
       enable = true;
-      settings = {
-        main = {
-          # Maps capslock to escape when pressed and control when held
-          capslock = "overload(control, esc)";
+      keyboards = {
+        default = {
+          ids = [ "*" ];
+          settings = {
+            main = {
+              # Maps capslock to escape when pressed and control when held
+              capslock = "overload(control, esc)";
+            };
+          };
         };
       };
     };
