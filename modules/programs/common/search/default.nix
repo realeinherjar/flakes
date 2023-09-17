@@ -11,7 +11,6 @@
       mediainfo
       exiftool
       file
-      yazi
     ];
   };
   programs = {
@@ -39,5 +38,6 @@
       enable = true;
       enableFishIntegration = true;
     };
+    # yazi = { enable = true; };
   };
 }
