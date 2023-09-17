@@ -1,4 +1,4 @@
-name: update-flake-lock
+name: Update Flake Lock File
 on:
   workflow_dispatch: # allows manual triggering
   schedule:
