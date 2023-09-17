@@ -1,5 +1,5 @@
 ''
-function g
-    git $argv
-end
+  function g
+      git $argv
+  end
 ''
