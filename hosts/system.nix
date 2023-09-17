@@ -4,7 +4,7 @@
   nixpkgs.system = "x86_64-linux";
 
   nixpkgs.config.allowUnfree = true;
-  
+
   zramSwap.enable = true;
 
   networking = {
@@ -23,15 +23,15 @@
     #  "185.199.108.133" = [ "raw.githubusercontent.com" ];
     # };
     firewall = {
-        enable = true;
-        allowedTCPPorts = [
-          443 # mullvad-daemon
-          51413 # transmission
-        ];
-        allowedUDPPorts = [
-          51413 # transmission
-        ];
-      };
+      enable = true;
+      allowedTCPPorts = [
+        443 # mullvad-daemon
+        51413 # transmission
+      ];
+      allowedUDPPorts = [
+        51413 # transmission
+      ];
+    };
 
   };
 
@@ -50,9 +50,7 @@
       locate = pkgs.mlocate;
       localuser = null;
     };
-    openssh = {
-      enable = false;
-    };
+    openssh = { enable = false; };
     fstrim.enable = true;
     fwupd.enable = true;
     tor.enable = true;
@@ -78,7 +76,6 @@
       p7zip
       atool
       unzip
-      joshuto
       ffmpeg
       ffmpegthumbnailer
       glib
@@ -103,6 +100,7 @@
       ncdu
       broot
       gh
+      unar
       lazydocker
       aria
       tectonic
@@ -124,7 +122,7 @@
           [device-mac-randomization]
           # "yes" is already the default for scanning
           wifi.scan-rand-mac-address=yes
-        
+
           [connection-mac-randomization]
           # Randomize MAC for every ethernet connection
           #ethernet.cloned-mac-address=random
@@ -143,9 +141,7 @@
   nix = {
     settings = {
 
-      substituters = [
-        "https://cache.nixos.org/"
-      ];
+      substituters = [ "https://cache.nixos.org/" ];
       auto-optimise-store = true; # Optimise syslinks
     };
     # Set the $NIX_PATH entry for nixpkgs. This is necessary in
@@ -175,6 +171,6 @@
       enable = false;
       channel = "https://nixos.org/channels/nixos-unstable";
     };
-    stateVersion = "23.05";
+    stateVersion = "23.11";
   };
 }

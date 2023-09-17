@@ -25,11 +25,8 @@
       XDG_BIN_HOME = "\${HOME}/.local/bin";
       XDG_DATA_HOME = "\${HOME}/.local/share";
     };
-    sessionPath = [
-      "$HOME/.npm-global/bin"
-      "$HOME/.local/bin"
-      "$HOME/.cargo/bin"
-    ];
+    sessionPath =
+      [ "$HOME/.npm-global/bin" "$HOME/.local/bin" "$HOME/.cargo/bin" ];
     file.".config/hypr/keybind".source = ../desktop/hyprland/keybind;
   };
 }

@@ -1,23 +1,22 @@
 { config, pkgs, user, inputs, ... }:
 
 {
-  imports =
-    [
-      ./hardware-configuration.nix
-    ];
+  imports = [ ./hardware-configuration.nix ];
 
   users.mutableUsers = false;
-  users.users.root.initialHashedPassword = "$6$MaOkIaWVTcGTX0Ec$5trnAnfzqMYsoggvBbjBcP.SPxx/B1fqsQxLfKU26QMerrG0QmRnaofCT3/K0LBk9aLeiPDjledO7Sdh9yv161";
+  users.users.root.initialHashedPassword =
+    "$6$MaOkIaWVTcGTX0Ec$5trnAnfzqMYsoggvBbjBcP.SPxx/B1fqsQxLfKU26QMerrG0QmRnaofCT3/K0LBk9aLeiPDjledO7Sdh9yv161";
   users.users.${user} = {
-    initialHashedPassword = "$6$MaOkIaWVTcGTX0Ec$5trnAnfzqMYsoggvBbjBcP.SPxx/B1fqsQxLfKU26QMerrG0QmRnaofCT3/K0LBk9aLeiPDjledO7Sdh9yv161";
+    initialHashedPassword =
+      "$6$MaOkIaWVTcGTX0Ec$5trnAnfzqMYsoggvBbjBcP.SPxx/B1fqsQxLfKU26QMerrG0QmRnaofCT3/K0LBk9aLeiPDjledO7Sdh9yv161";
     # shell = pkgs.fish;
     isNormalUser = true;
     extraGroups = [ "wheel" ];
-    packages = (with pkgs; [
-    ]) ++ (with config.nur.repos;[
-      # nur packages
-      # https://nur.nix-community.org/
-    ]);
+    packages = (with pkgs; [ ]) ++ (with config.nur.repos;
+      [
+        # nur packages
+        # https://nur.nix-community.org/
+      ]);
   };
   boot = {
     supportedFilesystems = [ "ntfs" ];
@@ -34,10 +33,7 @@
       };
       timeout = 3;
     };
-    kernelParams = [
-      "quiet"
-      "splash"
-    ];
+    kernelParams = [ "quiet" "splash" ];
     consoleLogLevel = 0;
     initrd.verbose = false;
   };
@@ -50,16 +46,20 @@
         "/var/log"
         "/var/lib"
       ];
-      files = [
-        "/etc/machine-id"
-      ];
+      files = [ "/etc/machine-id" ];
       users.${user} = {
         directories = [
           ".cache"
           ".npm-global"
           ".config"
-          { directory = ".gnupg"; mode = "0700"; }
-          { directory = ".ssh"; mode = "0700"; }
+          {
+            directory = ".gnupg";
+            mode = "0700";
+          }
+          {
+            directory = ".ssh";
+            mode = "0700";
+          }
           ".local"
           ".mozilla"
           "git"
@@ -71,13 +71,10 @@
         ];
       };
     };
-    systemPackages = with pkgs; [
-    ];
+    systemPackages = with pkgs; [ ];
   };
 
-  services.xserver = {
-    xkbOptions = "caps:escape";
-  };
+  services.xserver = { xkbOptions = "caps:escape"; };
   console.useXkbConfig = true;
 
   services.xserver.libinput = {
@@ -85,9 +82,7 @@
     touchpad.naturalScrolling = true;
   };
 
-  services = {
-    getty.autologinUser = "${user}";
-  };
+  services = { getty.autologinUser = "${user}"; };
 
   security.sudo = {
     enable = false;

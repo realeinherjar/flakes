@@ -1,10 +1,8 @@
-{ pkgs, ... }:
-{
+{ pkgs, ... }: {
   programs = {
     bash = {
       enable = true;
-      initExtra = ''
-      '';
+      initExtra = "";
     };
   };
 }

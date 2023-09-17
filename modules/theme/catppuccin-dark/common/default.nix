@@ -1,7 +1,1 @@
-[
-  ./gtk
-  ./btop
-  ./cava
-  ./rofi
-  ./fish
-]
+[ ./gtk ./btop ./cava ./rofi ./fish ]

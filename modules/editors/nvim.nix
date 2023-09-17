@@ -6,10 +6,9 @@
       enable = true;
       withPython3 = true;
       withNodeJs = true;
-      extraPackages = [
-      ];
+      extraPackages = [ ];
       #-- Plugins --#
-      plugins = with pkgs.vimPlugins;[ ];
+      plugins = with pkgs.vimPlugins; [ ];
       #-- --#
     };
   };
@@ -21,20 +20,11 @@
       lazygit
       # LSPs
       nodePackages_latest.bash-language-server
-      nodePackages_latest.dockerfile-language-server-nodejs
-      clang-tools
       nodePackages_latest.vscode-langservers-extracted
-      gopls
       lua-language-server
-      marksman
-      nil
       pyright
       rust-analyzer
-      taplo
-      texlab
       nodePackages_latest.typescript-language-server
-      typst-lsp
-      nodePackages.yaml-language-server
       # tree-sitter
       tree-sitter
       # format
@@ -43,20 +33,23 @@
       isort
       nixpkgs-fmt
       rustfmt
-      beautysh
       shfmt
       nodePackages.prettier
       # linters
       shellcheck
       shellharden
+      codespell
       luajitPackages.luacheck
       ruff
-      nodePackages.markdownlint-cli
+      nodePackages.markdownlint-cli2
       proselint
-      alex
-      nodePackages.write-good
-      # debug
-      lldb
+      nodePackages.eslint
     ];
+    file.".config/nvim".source = pkgs.fetchFromGitHub {
+      owner = "realeinherjar";
+      repo = "init.lua";
+      rev = "v0.1.1";
+      hash = "sha256-AuWdWk4esVcO22IiGsXbStTbwaFZ1ELTxAj9fd9fiPM=";
+    };
   };
 }

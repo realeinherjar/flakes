@@ -27,8 +27,10 @@
       };
       themes = {
         catppuccin = builtins.readFile (pkgs.fetchurl {
-          url = "https://github.com/catppuccin/bat/raw/main/Catppuccin-mocha.tmTheme";
-          sha256 = "a8c40d2466489a68ebab3cbb222124639221bcf00c669ab45bab242cbb2783fc";
+          url =
+            "https://github.com/catppuccin/bat/raw/main/Catppuccin-mocha.tmTheme";
+          sha256 =
+            "a8c40d2466489a68ebab3cbb222124639221bcf00c669ab45bab242cbb2783fc";
         });
       };
     };
@@ -36,5 +38,6 @@
       enable = true;
       enableFishIntegration = true;
     };
+    # yazi = { enable = true; };
   };
 }

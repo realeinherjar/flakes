@@ -1,12 +1,4 @@
-{ stdenv
-, lib
-, fetchFromGitHub
-, rustPlatform
-, pkg-config
-, libxkbcommon
-, lz4
-,
-}:
+{ stdenv, lib, fetchFromGitHub, rustPlatform, pkg-config, libxkbcommon, lz4, }:
 rustPlatform.buildRustPackage rec {
   pname = "swww";
   version = "0.7.2";

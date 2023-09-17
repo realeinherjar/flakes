@@ -1,8 +1,1 @@
-{ config, pkgs, ... }:
-{
-  home = {
-    packages = with pkgs; [
-      rofi-wayland
-    ];
-  };
-}
+{ config, pkgs, ... }: { home = { packages = with pkgs; [ rofi-wayland ]; }; }
