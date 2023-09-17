@@ -5,12 +5,11 @@
   ./music
   ./neofetch
   ./obs-studio
-  ./joshuto
   ./resource_monitor
   ./search
   ./yt-dlp
   ./zathura
   ./foot
-  ./tranmission
+  ./transmission
   ./bitcoin
 ]
