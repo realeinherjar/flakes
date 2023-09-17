@@ -1,21 +1,18 @@
 { config, lib, pkgs, user, ... }:
 
 {
-  environment.systemPackages = with pkgs; [
-    waybar
-  ];
+  environment.systemPackages = with pkgs; [ waybar ];
 
   nixpkgs.overlays = [
     (final: prev: {
-      waybar =
-        let
-          hyprctl = "${pkgs.hyprland}/bin/hyprctl";
-          waybarPatchFile = import ./workspace-patch.nix { inherit pkgs hyprctl; };
-        in
-        prev.waybar.overrideAttrs (oldAttrs: {
-          mesonFlags = oldAttrs.mesonFlags ++ [ "-Dexperimental=true" ];
-          patches = (oldAttrs.patches or [ ]) ++ [ waybarPatchFile ];
-        });
+      waybar = let
+        hyprctl = "${pkgs.hyprland}/bin/hyprctl";
+        waybarPatchFile =
+          import ./workspace-patch.nix { inherit pkgs hyprctl; };
+      in prev.waybar.overrideAttrs (oldAttrs: {
+        mesonFlags = oldAttrs.mesonFlags ++ [ "-Dexperimental=true" ];
+        patches = (oldAttrs.patches or [ ]) ++ [ waybarPatchFile ];
+      });
     })
   ];
 
@@ -181,9 +178,7 @@
           "mpris"
           "custom/cava-internal"
         ];
-        modules-center = [
-          "clock"
-        ];
+        modules-center = [ "clock" ];
         modules-right = [
           "pulseaudio"
           "backlight"
@@ -235,9 +230,7 @@
           "scroll-step" = 1;
           "format" = "{icon} {volume}%";
           "format-muted" = "󰖁 Muted";
-          "format-icons" = {
-            "default" = [ "" "" "" ];
-          };
+          "format-icons" = { "default" = [ "" "" "" ]; };
           "on-click" = "pamixer -t";
           "tooltip" = false;
         };
@@ -260,10 +253,8 @@
         };
         "memory" = {
           "interval" = 1;
-           "format" = "󰍛 {percentage}%";
-          "states" = {
-            "warning" = 85;
-          };
+          "format" = "󰍛 {percentage}%";
+          "states" = { "warning" = 85; };
         };
         "cpu" = {
           "interval" = 1;
@@ -294,7 +285,8 @@
           "on-scroll-up" = "mpc --quiet prev";
           "on-scroll-down" = "mpc --quiet next";
           "smooth-scrolling-threshold" = 5;
-          "tooltip-format" = "{title} - {artist} ({elapsedTime:%M:%S}/{totalTime:%H:%M:%S})";
+          "tooltip-format" =
+            "{title} - {artist} ({elapsedTime:%M:%S}/{totalTime:%H:%M:%S})";
         };
         "network" = {
           "format-disconnected" = "󰯡 Disconnected";

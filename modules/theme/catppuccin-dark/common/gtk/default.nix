@@ -1,9 +1,7 @@
 { config, pkgs, lib, inputs, user, ... }:
 
 {
-  home.sessionVariables = {
-    GTK_THEME = "Catppuccin-Frappe-Pink";
-  };
+  home.sessionVariables = { GTK_THEME = "Catppuccin-Frappe-Pink"; };
   home.pointerCursor = {
     package = pkgs.catppuccin-cursors;
     name = "Catppuccin-Frappe-Dark";
@@ -16,9 +14,7 @@
       name = "Catppuccin-Frappe-Pink";
       package = pkgs.catppuccin-frappe-gtk;
     };
-    cursorTheme = {
-      name = "Catppuccin-Frappe-Dark";
-    };
+    cursorTheme = { name = "Catppuccin-Frappe-Dark"; };
     iconTheme = {
       name = "Papirus-Dark";
       package = pkgs.papirus-icon-theme;

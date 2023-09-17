@@ -1,3 +1,1 @@
-[
-  ./nvim.nix
-]
+[ ./nvim.nix ]

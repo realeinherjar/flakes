@@ -72,15 +72,21 @@ let
   default_wall = pkgs.writeShellScriptBin "default_wall" ''
     if command -v swww >/dev/null 2>&1; then 
         killall dynamic_wallpaper
-        swww img "${../theme/catppuccin-dark/common/wall/default.png}" --transition-type random
+        swww img "${
+          ../theme/catppuccin-dark/common/wall/default.png
+        }" --transition-type random
     elif command -v swaybg >/dev/null 2>&1; then 
         killall swaybg
         killall dynamic_wallpaper
-        swaybg -i "${../theme/catppuccin-dark/common/wall/default.png}" -m fill &
+        swaybg -i "${
+          ../theme/catppuccin-dark/common/wall/default.png
+        }" -m fill &
     else 
         killall feh
         killall dynamic_wallpaper
-        feh --randomize --bg-fill "${../theme/catppuccin-dark/common/wall/default.png}" &
+        feh --randomize --bg-fill "${
+          ../theme/catppuccin-dark/common/wall/default.png
+        }" &
     fi
   '';
   launch_waybar = pkgs.writeShellScriptBin "launch_waybar" ''
@@ -96,8 +102,7 @@ let
 
     socat - UNIX-CONNECT:/tmp/hypr/$(echo $HYPRLAND_INSTANCE_SIGNATURE)/.socket2.sock | while read line; do border_color $line; done
   '';
-in
-{
+in {
   home.packages = with pkgs; [
     cava-internal
     wallpaper_random

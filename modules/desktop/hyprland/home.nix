@@ -1,9 +1,7 @@
 { config, lib, pkgs, ... }:
 
 {
-  imports = [
-    (import ../../environment/hypr-variables.nix)
-  ];
+  imports = [ (import ../../environment/hypr-variables.nix) ];
   programs = {
     bash = {
       initExtra = ''
@@ -13,13 +11,14 @@
       '';
     };
     fish = {
-       loginShellInit = ''
-         set TTY1 (tty)
-         [ "$TTY1" = "/dev/tty1" ] && exec Hyprland
-       '';
-     };
+      loginShellInit = ''
+        set TTY1 (tty)
+        [ "$TTY1" = "/dev/tty1" ] && exec Hyprland
+      '';
+    };
   };
-  systemd.user.targets.hyprland-session.Unit.Wants = [ "xdg-desktop-autostart.target" ];
+  systemd.user.targets.hyprland-session.Unit.Wants =
+    [ "xdg-desktop-autostart.target" ];
   wayland.windowManager.hyprland = {
     enable = true;
     systemdIntegration = true;
@@ -132,7 +131,7 @@
         bezier = overshot, 0.05, 0.9, 0.1, 1.05
         bezier = smoothOut, 0.36, 0, 0.66, -0.56
         bezier = smoothIn, 0.25, 1, 0.5, 1
-      
+
         animation = windows, 1, 5, default
         animation = windowsOut, 1, 4, default, popin 80%
         animation = windowsMove, 1, 4, default

@@ -1,11 +1,7 @@
 { lib, pkgs, user, ... }:
 
 {
-  home = {
-    packages = with pkgs; [
-      rnnoise-plugin
-    ];
-  };
+  home = { packages = with pkgs; [ rnnoise-plugin ]; };
   home.file.".config/pipewire/pipewire.conf.d/99-input-denoising.conf".text = ''
     context.modules = [
     {   name = libpipewire-module-filter-chain

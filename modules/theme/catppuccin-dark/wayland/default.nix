@@ -1,6 +1,1 @@
-let
-  common = import ../common;
-in
-[
-  ./notice
-] ++ common
+let common = import ../common; in [ ./notice ] ++ common

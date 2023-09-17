@@ -12,7 +12,5 @@
 
   users.groups.docker.members = [ "${user}" ];
 
-  environment.systemPackages = with pkgs; [
-    podman
-  ];
+  environment.systemPackages = with pkgs; [ podman ];
 }

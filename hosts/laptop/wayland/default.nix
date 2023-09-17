@@ -1,25 +1,23 @@
 { config, pkgs, user, inputs, ... }:
 
 {
-  imports =
-    (import ../../../modules/hardware) ++
-    (import ../../../modules/virtualisation) ++
-    [
-      ../hardware-configuration.nix
-      ../../../modules/fonts
-    ] ++ [
-      ../../../modules/desktop/hyprland
-    ];
+  imports = (import ../../../modules/hardware)
+    ++ (import ../../../modules/virtualisation)
+    ++ [ ../hardware-configuration.nix ../../../modules/fonts ]
+    ++ [ ../../../modules/desktop/hyprland ];
 
   sops.defaultSopsFile = ../../../secrets/secrets.yaml;
   users.mutableUsers = false;
-  users.users.root.initialHashedPassword = "$6$MaOkIaWVTcGTX0Ec$5trnAnfzqMYsoggvBbjBcP.SPxx/B1fqsQxLfKU26QMerrG0QmRnaofCT3/K0LBk9aLeiPDjledO7Sdh9yv161";
+  users.users.root.initialHashedPassword =
+    "$6$MaOkIaWVTcGTX0Ec$5trnAnfzqMYsoggvBbjBcP.SPxx/B1fqsQxLfKU26QMerrG0QmRnaofCT3/K0LBk9aLeiPDjledO7Sdh9yv161";
   programs.fish.enable = true;
   users.users.${user} = {
-    initialHashedPassword = "$6$MaOkIaWVTcGTX0Ec$5trnAnfzqMYsoggvBbjBcP.SPxx/B1fqsQxLfKU26QMerrG0QmRnaofCT3/K0LBk9aLeiPDjledO7Sdh9yv161";
+    initialHashedPassword =
+      "$6$MaOkIaWVTcGTX0Ec$5trnAnfzqMYsoggvBbjBcP.SPxx/B1fqsQxLfKU26QMerrG0QmRnaofCT3/K0LBk9aLeiPDjledO7Sdh9yv161";
     shell = pkgs.fish;
     isNormalUser = true;
-    extraGroups = [ "wheel" "docker" "libvirtd" "video" "audio" "networkmanager" ];
+    extraGroups =
+      [ "wheel" "docker" "libvirtd" "video" "audio" "networkmanager" ];
     packages = (with pkgs; [
       keepassxc
       tor-browser-bundle-bin
@@ -31,10 +29,11 @@
       playerctl
       xfce.thunar
       xfce.thunar-archive-plugin
-    ]) ++ (with config.nur.repos;[
-      # nur packages
-      # https://nur.nix-community.org/
-    ]);
+    ]) ++ (with config.nur.repos;
+      [
+        # nur packages
+        # https://nur.nix-community.org/
+      ]);
   };
   boot = {
     supportedFilesystems = [ "ntfs" ];
@@ -43,7 +42,7 @@
       systemd-boot = {
         enable = true;
         consoleMode = "auto";
-        configurationLimit=20;
+        configurationLimit = 20;
       };
       efi = {
         canTouchEfiVariables = true;
@@ -87,8 +86,14 @@
           ".local"
           ".cargo"
           ".npm-global"
-          { directory = ".gnupg"; mode = "0700"; }
-          { directory = ".ssh"; mode = "0700"; }
+          {
+            directory = ".gnupg";
+            mode = "0700";
+          }
+          {
+            directory = ".ssh";
+            mode = "0700";
+          }
           ".mozilla"
           "git"
           "dev"

@@ -7,17 +7,14 @@ let
   };
 
   lib = nixpkgs.lib;
-in
-{
+in {
   laptop = lib.nixosSystem {
     # Laptop profile
     inherit system;
     specialArgs = { inherit inputs user; };
     modules = [
-      ./laptop/wayland #hyprland
-    ] ++ [
-      ./system.nix
-    ] ++ [
+      ./laptop/wayland # hyprland
+    ] ++ [ ./system.nix ] ++ [
       inputs.impermanence.nixosModules.impermanence
       inputs.nur.nixosModules.nur
       inputs.hyprland.nixosModules.default
@@ -29,20 +26,13 @@ in
           useUserPackages = true;
           extraSpecialArgs = { inherit user; };
           users.${user} = {
-            imports = [
-              (import ./laptop/wayland/home.nix)
-            ] ++ [
-              inputs.hyprland.homeManagerModules.default
-            ];
+            imports = [ (import ./laptop/wayland/home.nix) ]
+              ++ [ inputs.hyprland.homeManagerModules.default ];
           };
         };
         nixpkgs = {
-          overlays =
-            (import ../overlays)
-              ++ [
-              self.overlays.default
-              inputs.rust-overlay.overlays.default
-            ];
+          overlays = (import ../overlays)
+            ++ [ self.overlays.default inputs.rust-overlay.overlays.default ];
         };
       }
     ];
@@ -51,13 +41,8 @@ in
     # Laptop-minimal profile
     inherit system;
     specialArgs = { inherit inputs user; };
-    modules = [
-      ./laptop-minimal
-    ] ++ [
-      ./system.nix
-    ] ++ [
-      inputs.impermanence.nixosModules.impermanence
-    ];
+    modules = [ ./laptop-minimal ] ++ [ ./system.nix ]
+      ++ [ inputs.impermanence.nixosModules.impermanence ];
   };
 
 }
