@@ -11,5 +11,4 @@
   ./zathura
   ./foot
   ./transmission
-  ./bitcoin
 ]
