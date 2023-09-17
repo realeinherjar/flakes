@@ -1,4 +1,4 @@
-{ config, lib, pkgs, fetchFromGitHub, ... }:
+{ config, lib, pkgs, ... }:
 
 {
   programs = {
@@ -45,7 +45,7 @@
       proselint
       nodePackages.eslint
     ];
-    file.".config/nvim".source = fetchFromGitHub {
+    file.".config/nvim".source = pkgs.fetchFromGitHub {
       owner = "realeinherjar";
       repo = "init.lua";
       rev = "v0.1.1";
