@@ -20,7 +20,7 @@
         hostname = "*";
         forwardAgent = true;
         forwardX11 = true;
-        IdentityFile = [ "~/.ssh/id_ed25519" "~/.ssh/id_einherjar" ];
+        identityFile = [ "~/.ssh/id_ed25519" "~/.ssh/id_einherjar" ];
       };
     };
   };
