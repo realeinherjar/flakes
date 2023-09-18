@@ -1,12 +1,32 @@
 {
   description = "My Personal NixOS Configuration";
 
+  inputs = {
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    rust-overlay.url = "github:oxalica/rust-overlay";
+    impermanence.url = "github:nix-community/impermanence";
+    nur.url = "github:nix-community/NUR";
+    hyprpicker.url = "github:hyprwm/hyprpicker";
+    hypr-contrib.url = "github:hyprwm/contrib";
+    flake-parts.url = "github:hercules-ci/flake-parts";
+    sops-nix.url = "github:Mic92/sops-nix";
+    hyprland = {
+      url = "github:hyprwm/Hyprland";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    home-manager = {
+      url = "github:nix-community/home-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+  };
+
   outputs = inputs@{ self, nixpkgs, flake-parts, ... }:
     let
       user = "einherjar";
       domain = "valhalla";
       selfPkgs = import ./pkgs;
-    in flake-parts.lib.mkFlake { inherit inputs; } {
+    in
+    flake-parts.lib.mkFlake { inherit inputs; } {
       systems = [ "x86_64-linux" ];
       perSystem = { config, inputs', pkgs, system, ... }:
         let
@@ -14,11 +34,12 @@
             inherit system;
             overlays = [ self.overlays.default ];
           };
-        in {
+        in
+        {
           devShells = {
-            #run by `nix devlop` or `nix-shell`(legacy)
+            #run by `nix develop` or `nix-shell`(legacy)
             default = import ./shell.nix { inherit pkgs; };
-            #run by `nix devlop .#<name>`
+            #run by `nix develop .#<name>`
             secret = with pkgs;
               mkShell {
                 name = "secret";
@@ -40,23 +61,4 @@
         });
       };
     };
-
-  inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    rust-overlay.url = "github:oxalica/rust-overlay";
-    impermanence.url = "github:nix-community/impermanence";
-    nur.url = "github:nix-community/NUR";
-    hyprpicker.url = "github:hyprwm/hyprpicker";
-    hypr-contrib.url = "github:hyprwm/contrib";
-    flake-parts.url = "github:hercules-ci/flake-parts";
-    sops-nix.url = "github:Mic92/sops-nix";
-    hyprland = {
-      url = "github:hyprwm/Hyprland";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    home-manager = {
-      url = "github:nix-community/home-manager";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-  };
 }
