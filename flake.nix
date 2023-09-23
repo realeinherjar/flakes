@@ -9,7 +9,7 @@
     hyprpicker.url = "github:hyprwm/hyprpicker";
     hypr-contrib.url = "github:hyprwm/contrib";
     flake-parts.url = "github:hercules-ci/flake-parts";
-    sops-nix.url = "github:Mic92/sops-nix";
+    agenix.url = "github:ryantm/agenix";
     hyprland = {
       url = "github:hyprwm/Hyprland";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -20,7 +20,7 @@
     };
   };
 
-  outputs = inputs@{ self, nixpkgs, flake-parts, ... }:
+  outputs = inputs@{ self, nixpkgs, flake-parts, agenix, ... }:
     let
       user = "einherjar";
       domain = "valhalla";
@@ -39,15 +39,6 @@
           devShells = {
             #run by `nix develop` or `nix-shell`(legacy)
             default = import ./shell.nix { inherit pkgs; };
-            #run by `nix develop .#<name>`
-            secret = with pkgs;
-              mkShell {
-                name = "secret";
-                nativeBuildInputs = [ sops age ssh-to-age ssh-to-pgp ];
-                shellHook = ''
-                  export PS1="\e[0;31m(Secret)\$ \e[m" 
-                '';
-              };
           };
 
           formatter = pkgs.nixpkgs-fmt;
