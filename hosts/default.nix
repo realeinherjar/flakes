@@ -7,7 +7,8 @@ let
   };
 
   lib = nixpkgs.lib;
-in {
+in
+{
   laptop = lib.nixosSystem {
     # Laptop profile
     inherit system;
@@ -18,7 +19,7 @@ in {
       inputs.impermanence.nixosModules.impermanence
       inputs.nur.nixosModules.nur
       inputs.hyprland.nixosModules.default
-      inputs.sops-nix.nixosModules.sops
+      inputs.agenix.nixosModules.default
       inputs.home-manager.nixosModules.home-manager
       {
         home-manager = {

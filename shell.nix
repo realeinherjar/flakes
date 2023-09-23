@@ -10,6 +10,13 @@ pkgs.mkShell {
     |_|      |_|  \__,_| |_|\_\  \___| |___/
           "
             export PS1="[\e[0;34m(Flakes)\$\e[m:\w]\$ "
+            export editor=nvim
   '';
-  nativeBuildInputs = with pkgs; [ git neovim ];
+  nativeBuildInputs = with pkgs; [
+    bashInteractive
+    git
+    neovim
+    age
+    age-plugin-yubikey
+  ];
 }

@@ -6,7 +6,13 @@
     ++ [ ../hardware-configuration.nix ../../../modules/fonts ]
     ++ [ ../../../modules/desktop/hyprland ];
 
-  sops.defaultSopsFile = ../../../secrets/secrets.yaml;
+  age.secrets = {
+    einherjar.file = ../../../secrets/einherjar.age;
+    btc_onion_address.file = ../../../secrets/btc_onion_address.age;
+    btc_onion_port.file = ../../../secrets/btc_onion_port.age;
+    btc_user.file = ../../../secrets/btc_user.age;
+    btc_pass.file = ../../../secrets/btc_pass.age;
+  };
   users.mutableUsers = false;
   users.users.root.initialHashedPassword =
     "$6$MaOkIaWVTcGTX0Ec$5trnAnfzqMYsoggvBbjBcP.SPxx/B1fqsQxLfKU26QMerrG0QmRnaofCT3/K0LBk9aLeiPDjledO7Sdh9yv161";
