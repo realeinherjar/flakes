@@ -20,9 +20,13 @@
         hostname = "*";
         forwardAgent = true;
         forwardX11 = true;
-        identityFile = [ "~/.ssh/id_ed25519" "~/.ssh/id_einherjar" ];
+        identityFile = [ "~/.ssh/id_ed25519" ];
       };
     };
   };
+  home.file.".ssh/know_hosts".text = ''
+    github.com ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOMqqnkVzrm0SdG6UOoqKLsabgH5C9okWi0dh2l9GKJl
+    gitlab.com ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAfuCHKVTjquxvt6CM6tdG4SLp1Btn/nOeHHE5UOzRdf
+  '';
 }
 

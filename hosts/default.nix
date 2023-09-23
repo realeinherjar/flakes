@@ -45,5 +45,4 @@ in
     modules = [ ./laptop-minimal ] ++ [ ./system.nix ]
       ++ [ inputs.impermanence.nixosModules.impermanence ];
   };
-
 }
