@@ -48,8 +48,8 @@
     file.".config/nvim".source = pkgs.fetchFromGitHub {
       owner = "realeinherjar";
       repo = "init.lua";
-      rev = "v0.2.0";
-      hash = "sha256-l2UA2vUx5daSQv+hXvCrweBdiCCeJuVku81AnWeWGZ4=";
+      rev = "0.3.2";
+      hash = "sha256-bKCOpp9PB3yheUY06kI6jvXx8ZvONtk03fBPgNVdtJQ=";
     };
   };
 }
