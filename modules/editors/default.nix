@@ -1,1 +1,1 @@
-[ ./nvim.nix ]
+[ ./helix.nix ]

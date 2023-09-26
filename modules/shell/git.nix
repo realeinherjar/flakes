@@ -50,7 +50,6 @@
           autocrlf = "input";
           safecrlf = true;
         };
-        merge.tool = "nvim -d";
         pull.ff = "only";
         push = {
           default = "simple";

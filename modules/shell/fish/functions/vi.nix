@@ -1,5 +1,5 @@
 ''
   function vi
-      nvim $argv
+      hx $argv
   end
 ''
