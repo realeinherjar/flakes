@@ -39,7 +39,7 @@
         keys = {
           normal = {
             esc = ["collapse_selection" "keep_primary_selection"];
-            X = ["extend_line_up", "extend_to_line_bounds"];
+            X = ["extend_line_up" "extend_to_line_bounds"];
             "A-x" = "extend_to_line_bounds";
             space = {
               w = ":write";
@@ -47,7 +47,7 @@
             };
           };
           select = {
-            X = ["extend_line_up", "extend_to_line_bounds"];
+            X = ["extend_line_up" "extend_to_line_bounds"];
             "A-x" = "extend_to_line_bounds";
           };
         };
