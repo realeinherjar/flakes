@@ -1,7 +1,7 @@
 ''
   # This file contains fish universal variable definitions.
   # VERSION: 3.0
-  SETUVAR --export EDITOR:nvim
+  SETUVAR --export EDITOR:hx
   SETUVAR --export LESS:\x2dFRX
   SETUVAR --export MANPAGER:sh\x20\x2dc\x20\x27col\x20\x2dbx\x20\x7c\x20bat\x20\x2dl\x20man\x20\x2dp\x27
   SETUVAR --export PAGER:bat
@@ -37,5 +37,5 @@
   SETUVAR fish_pager_color_progress:brwhite\x1e\x2d\x2dbackground\x3dcyan
   SETUVAR fish_pager_color_selected_background:\x2d\x2dbackground\x3dbrblack
 
-  SETUVAR fish_user_paths:/home/einherjar/\x2enpm\x2dglobal/bin\x1e/home/einherjar/\x2ecargo/bin\x1e/home/einherjar/\x2elocal/share/nvim/mason/bin
-''
+  SETUVAR fish_user_paths:/home/einherjar/\x2enpm\x2dglobal/bin\x1e/home/einherjar/\x2ecargo/bin
+  ''

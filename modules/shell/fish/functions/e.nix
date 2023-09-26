@@ -1,5 +1,5 @@
 ''
   function e
-      nvim $argv
+      hx $argv
   end
 ''

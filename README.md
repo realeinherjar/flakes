@@ -52,7 +52,7 @@ Read more about this in the [NixOs Paranoid Guide](https://xeiaso.net/blog/paran
 1. Modify the overwritten `hardware-configuration.nix`:
 
    ```bash
-   nvim /mnt/etc/nixos/flakes/hosts/laptop/hardware-configuration.nix
+   hx /mnt/etc/nixos/flakes/hosts/laptop/hardware-configuration.nix
    ```
 
    ```nix
