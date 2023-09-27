@@ -1,70 +1,54 @@
 {
+  description = "NixOS/MacOS Valhalla Configs";
   inputs = {
-    # Principle inputs (updated by `nix run .#update`)
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    nix-darwin.url = "github:lnl7/nix-darwin/master";
-    nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
-    home-manager.url = "github:nix-community/home-manager";
-    home-manager.inputs.nixpkgs.follows = "nixpkgs";
-
-    flake-parts.url = "github:hercules-ci/flake-parts";
-    nixos-flake.url = "github:srid/nixos-flake";
+    nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-23.05-darwin";
+    nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
+    nix-darwin = {
+      url = "github:lnl7/nix-darwin/master";
+      inputs.nixpkgs.follows = "nixpkgs-unstable";
+    };
+    home-manager = {
+      url = "github:nix-community/home-manager";
+      inputs.nixpkgs.follows = "nixpkgs-unstable";
+    };
+    hyprland = {
+      # Official Hyprland Flake
+      url = "github:hyprwm/Hyprland";
+      inputs.nixpkgs.follows = "nixpkgs-unstable";
+    };
   };
 
-  outputs = inputs@{ self, ... }:
-    inputs.flake-parts.lib.mkFlake { inherit inputs; } {
-      systems = [ "x86_64-linux" "aarch64-darwin" "x86_64-darwin" ];
-      imports = [
-        inputs.nixos-flake.flakeModule
-      ];
-
-      flake =
-        let
-          myUserName = "einherjar";
-        in
-        {
-          # Configurations for Linux (NixOS) machines
-          nixosConfigurations = {
-            laptop = self.nixos-flake.lib.mkLinuxSystem {
-              nixpkgs.hostPlatform = "x86_64-linux";
-              imports = [
-                ./common.nix
-                ./linux.nix
-                {
-                  users.users.${myUserName}.isNormalUser = true;
-                }
-                self.nixosModules.home-manager
-                {
-                  home-manager.users.${myUserName} = {
-                    imports = [
-                      ./home/direnv.nix
-                    ];
-                    home.stateVersion = "23.11";
-                  };
-                }
-              ];
-            };
-          };
-
-          # Configurations for macOS machines
-          darwinConfigurations = {
-            macbook = self.nixos-flake.lib.mkMacosSystem {
-              nixpkgs.hostPlatform = "aarch64-darwin";
-              imports = [
-                ./common.nix
-                ./darwin.nix
-                self.nixosModules.home-manager
-                {
-                  home-manager.users.einherjar = {
-                    imports = [
-                      ./home/direnv.nix
-                    ];
-                    home.stateVersion = "23.11";
-                  };
-                }
-              ];
-            };
-          };
-        };
+  outputs = inputs @ { self, nix-darwin, nixpkgs, nixpkgs-unstable, home-manager, hyprland, ... }:
+    let
+      vars = {
+        # Variables used in flake
+        user = "einherjar";
+        terminal = "alacritty";
+        editor = "hx"; # helium
+      };
+    in
+    {
+      # Linux (NixOS) machines Configurations
+      #nixosConfigurations = (
+      #  import ./hosts {
+      #    inherit (nixpkgs) lib;
+      #    # Inherit inputs
+      #    inherit inputs nixpkgs nixpkgs-unstable home-manager hyprland vars;
+      #  }
+      #);
+      # macOS machines Configurations
+      darwinConfigurations = (
+        import ./darwin {
+          inherit (nixpkgs) lib;
+          inherit inputs nixpkgs nixpkgs-unstable home-manager nix-darwin vars;
+        }
+      );
+      # Nix Configurations
+      #homeConfigurations = (
+      #  import ./nix {
+      #    inherit (nixpkgs) lib;
+      #    inherit inputs nixpkgs nixpkgs-unstable home-manager vars;
+      #  }
+      #);
     };
 }
