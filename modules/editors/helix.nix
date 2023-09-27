@@ -14,6 +14,7 @@
           scrolloff = 8;
           rulers = [80];
           true-color = true;
+          color-modes = true;
           bufferline = "multiple";
           cursor-shape = {
             insert = "bar";
@@ -32,6 +33,9 @@
             mode.insert = "INSERT";
             mode.select = "SELECT";
           };
+          indent-guides = {
+            render = true;
+          };
           lsp = {
             display-messages = true;
             display-inlay-hints = true;
@@ -41,9 +45,9 @@
           normal = {
             esc = [ "collapse_selection" "keep_primary_selection" ];
             X = [ "extend_line_up" "extend_to_line_bounds" ];
-            "A-x" = "extend_to_line_bounds";
-            "A-j" = [ "ensure_selections_forward" "extend_to_line_bounds" "extend_char_right" "extend_char_left" "delete_selection" "add_newline_below" "move_line_down" "replace_with_yanked" ];
-            "A-k" = [ "ensure_selections_forward" "extend_to_line_bounds" "extend_char_right" "extend_char_left" "delete_selection" "move_line_up" "add_newline_above" "move_line_up" "replace_with_yanked" ];
+            A-x = "extend_to_line_bounds";
+            A-j = [ "ensure_selections_forward" "extend_to_line_bounds" "extend_char_right" "extend_char_left" "delete_selection" "add_newline_below" "move_line_down" "replace_with_yanked" ];
+            A-k = [ "ensure_selections_forward" "extend_to_line_bounds" "extend_char_right" "extend_char_left" "delete_selection" "move_line_up" "add_newline_above" "move_line_up" "replace_with_yanked" ];
 
             space = {
               w = ":write";
@@ -52,7 +56,7 @@
           };
           select = {
             X = ["extend_line_up" "extend_to_line_bounds"];
-            "A-x" = "extend_to_line_bounds";
+            A-x = "extend_to_line_bounds";
           };
         };
       };
