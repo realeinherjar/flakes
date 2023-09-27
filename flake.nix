@@ -1,55 +1,70 @@
 {
-  description = "My Personal NixOS Configuration";
-
   inputs = {
+    # Principle inputs (updated by `nix run .#update`)
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    rust-overlay.url = "github:oxalica/rust-overlay";
-    impermanence.url = "github:nix-community/impermanence";
-    nur.url = "github:nix-community/NUR";
-    hyprpicker.url = "github:hyprwm/hyprpicker";
-    hypr-contrib.url = "github:hyprwm/contrib";
+    nix-darwin.url = "github:lnl7/nix-darwin/master";
+    nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
+    home-manager.url = "github:nix-community/home-manager";
+    home-manager.inputs.nixpkgs.follows = "nixpkgs";
+
     flake-parts.url = "github:hercules-ci/flake-parts";
-    agenix.url = "github:ryantm/agenix";
-    hyprland = {
-      url = "github:hyprwm/Hyprland";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    home-manager = {
-      url = "github:nix-community/home-manager";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    nixos-flake.url = "github:srid/nixos-flake";
   };
 
-  outputs = inputs@{ self, nixpkgs, flake-parts, agenix, ... }:
-    let
-      user = "einherjar";
-      domain = "valhalla";
-      selfPkgs = import ./pkgs;
-    in
-    flake-parts.lib.mkFlake { inherit inputs; } {
-      systems = [ "x86_64-linux" ];
-      perSystem = { config, inputs', pkgs, system, ... }:
+  outputs = inputs@{ self, ... }:
+    inputs.flake-parts.lib.mkFlake { inherit inputs; } {
+      systems = [ "x86_64-linux" "aarch64-darwin" "x86_64-darwin" ];
+      imports = [
+        inputs.nixos-flake.flakeModule
+      ];
+
+      flake =
         let
-          pkgs = import nixpkgs {
-            inherit system;
-            overlays = [ self.overlays.default ];
-          };
+          myUserName = "einherjar";
         in
         {
-          devShells = {
-            #run by `nix develop` or `nix-shell`(legacy)
-            default = import ./shell.nix { inherit pkgs; };
+          # Configurations for Linux (NixOS) machines
+          nixosConfigurations = {
+            laptop = self.nixos-flake.lib.mkLinuxSystem {
+              nixpkgs.hostPlatform = "x86_64-linux";
+              imports = [
+                ./common.nix
+                ./linux.nix
+                {
+                  users.users.${myUserName}.isNormalUser = true;
+                }
+                self.nixosModules.home-manager
+                {
+                  home-manager.users.${myUserName} = {
+                    imports = [
+                      ./home/direnv.nix
+                    ];
+                    home.stateVersion = "23.11";
+                  };
+                }
+              ];
+            };
           };
 
-          formatter = pkgs.nixpkgs-fmt;
+          # Configurations for macOS machines
+          darwinConfigurations = {
+            macbook = self.nixos-flake.lib.mkMacosSystem {
+              nixpkgs.hostPlatform = "aarch64-darwin";
+              imports = [
+                ./common.nix
+                ./darwin.nix
+                self.nixosModules.home-manager
+                {
+                  home-manager.users.einherjar = {
+                    imports = [
+                      ./home/direnv.nix
+                    ];
+                    home.stateVersion = "23.11";
+                  };
+                }
+              ];
+            };
+          };
         };
-
-      flake = {
-        overlays.default = selfPkgs.overlay;
-        nixosConfigurations = (import ./hosts {
-          system = "x86_64-linux";
-          inherit nixpkgs self inputs user;
-        });
-      };
     };
 }

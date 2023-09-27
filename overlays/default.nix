@@ -1,1 +1,0 @@
-[ (import ./cinnamon.nemo) ]
