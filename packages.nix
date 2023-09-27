@@ -1,5 +1,4 @@
-#
-#  Specific system configuration settings for MacBook
+#  Common packages for all systems
 #
 #  flake.nix
 #   └─ ./packages.nix *
@@ -28,6 +27,8 @@
       gnupg
       curl
       rsync
+      detox
+      bc
       jq
       just
 
@@ -73,6 +74,7 @@
 
       # media
       ffmpeg
+      qpdf
       graphicsmagick
       aria2
       yt-dlp

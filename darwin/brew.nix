@@ -1,4 +1,3 @@
-#
 #  Specific system configuration settings for MacBook
 #
 #  flake.nix

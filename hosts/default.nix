@@ -1,10 +1,8 @@
-#
 #  These are the different profiles that can be used when building NixOS.
 #
 #  flake.nix 
 #   └─ ./hosts  
 #       ├─ default.nix *
-#       ├─ configuration.nix
 #       └─ ./<host>.nix
 #           └─ default.nix 
 #
@@ -39,9 +37,13 @@ in
       };
     };
     modules = [
-      # ./laptop
-      # ./configuration.nix
+      ../packages.nix
+      ./packages.nix
+      ./laptop
+      ./laptop/hardware-configuration.nix
+      ./laptop/wayland.nix
 
+      inputs.impermanence.nixosModules.impermanence
       home-manager.nixosModules.home-manager
       {
         home-manager.useGlobalPkgs = true;

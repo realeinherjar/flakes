@@ -16,6 +16,7 @@
       url = "github:hyprwm/Hyprland";
       inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
+    impermanence.url = "github:nix-community/impermanence";
   };
 
   outputs = inputs @ { self, nix-darwin, nixpkgs, nixpkgs-unstable, home-manager, hyprland, ... }:
@@ -29,13 +30,13 @@
     in
     {
       # Linux (NixOS) machines Configurations
-      #nixosConfigurations = (
-      #  import ./hosts {
-      #    inherit (nixpkgs) lib;
-      #    # Inherit inputs
-      #    inherit inputs nixpkgs nixpkgs-unstable home-manager hyprland vars;
-      #  }
-      #);
+      nixosConfigurations = (
+        import ./hosts {
+          inherit (nixpkgs) lib;
+          # Inherit inputs
+          inherit inputs nixpkgs nixpkgs-unstable home-manager hyprland vars;
+        }
+      );
       # macOS machines Configurations
       darwinConfigurations = (
         import ./darwin {
@@ -43,12 +44,5 @@
           inherit inputs nixpkgs nixpkgs-unstable home-manager nix-darwin vars;
         }
       );
-      # Nix Configurations
-      #homeConfigurations = (
-      #  import ./nix {
-      #    inherit (nixpkgs) lib;
-      #    inherit inputs nixpkgs nixpkgs-unstable home-manager vars;
-      #  }
-      #);
     };
 }

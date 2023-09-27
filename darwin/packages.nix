@@ -1,5 +1,4 @@
-#
-#  Specific system configuration settings for MacBook
+#  Specific packages for MacOS
 #
 #  flake.nix
 #   └─ ./darwin
@@ -12,7 +11,6 @@
 {
   environment = {
     systemPackages = with pkgs; [
-      # Mac-specific packages
       pinentry_mac
     ];
   };
