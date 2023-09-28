@@ -13,5 +13,9 @@
   };
   programs = { home-manager.enable = true; };
 
-  imports = [ ./helix.nix ./shell ];
+  imports = [
+    ./helix.nix
+    ./shell
+    ./gpg.nix
+  ];
 }

@@ -49,12 +49,14 @@
       locate = pkgs.mlocate;
       localuser = null;
     };
-    openssh = { enable = false; };
+    openssh.enable = false;
     fstrim.enable = true;
     fwupd.enable = true;
     tor.enable = true;
     mullvad-vpn.enable = true;
   };
+
+  programs.gnupg.agent.pinentryFlavor = "gnome3";
 
   environment.etc = {
     "NetworkManager/conf.d/wifi_rand_mac.conf" = {
