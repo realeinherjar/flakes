@@ -5,6 +5,7 @@
 #      ├─ default.nix
 #      └─ gpg.nix *
 #
+
 { config, pkgs, vars, ... }:
 
 {

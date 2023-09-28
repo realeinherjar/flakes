@@ -18,5 +18,6 @@
     ./shell
     ./gpg.nix
     ./ssh.nix
+    ./cli
   ];
 }

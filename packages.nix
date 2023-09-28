@@ -3,6 +3,7 @@
 #  flake.nix
 #   └─ ./packages.nix *
 #
+
 { config, pkgs, vars, ... }:
 
 {
@@ -19,12 +20,8 @@
       # System-Wide Packages
       # Terminal
       tree
-      fzf
       fd
-      ripgrep
       parallel
-      tmux
-      gnupg
       curl
       rsync
       detox
@@ -66,7 +63,6 @@
       qpdf
       graphicsmagick
       aria2
-      yt-dlp
       pandoc
       tectonic
       typst

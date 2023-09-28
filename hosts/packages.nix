@@ -5,6 +5,7 @@
 #       ├─ default.nix
 #       └─ packages.nix *
 #
+
 { config, pkgs, vars, ... }:
 
 {
