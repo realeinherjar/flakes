@@ -19,8 +19,14 @@ in
       ./macbook.nix
       home-manager.darwinModules.home-manager
       {
-        home-manager.useGlobalPkgs = true;
-        home-manager.useUserPackages = true;
+        home-manager = {
+          useGlobalPkgs = true;
+          useUserPackages = true;
+          extraSpecialArgs = { inherit vars; };
+          users.${vars.user} = {
+            imports = [ ../home-manager ../home-manager/darwin.nix ];
+          };
+        };
       }
     ];
   };

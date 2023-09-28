@@ -1,4 +1,4 @@
-#  Specific system configuration settings for MacBook
+#  Common home-manager configuration settings
 #
 #  flake.nix
 #   └─ home-manager
@@ -7,11 +7,11 @@
 { config, pkgs, vars, ... }:
 
 {
-  home-manager.users.${vars.user} = {
-    home = {
-      stateVersion = "23.11";
-    };
-
-    imports = [ ];
+  home = {
+    username = "${vars.user}";
+    stateVersion = "23.11";
   };
+  programs = { home-manager.enable = true; };
+
+  imports = [ ./helix.nix ];
 }

@@ -76,6 +76,7 @@
       mode = "0400";
     };
   };
+
   nix = {
     # Nix Package Manager Settings
     settings = {
@@ -85,7 +86,7 @@
       # Garbage Collection
       automatic = true;
       dates = "weekly";
-      options = "--delete-older-than 2d";
+      options = "--delete-older-than 7d";
     };
     package = pkgs.nixVersions.unstable; # Enable Flakes
     registry.nixpkgs.flake = inputs.nixpkgs;
@@ -95,7 +96,6 @@
       keep-derivations      = true
     '';
   };
-  nixpkgs.config.allowUnfree = true; # Allow Proprietary Software.
 
   system = {
     autoUpgrade = {

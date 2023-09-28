@@ -60,19 +60,8 @@
       typescript
       nodejs # provides npm
 
-      # editor/LSPs
-      helix
-      marksman
-      deno
-      cmus
-      ruff
-      ruff-lsp
-      black
-      yaml-language-server
-      nodePackages.bash-language-server
-      taplo
-
       # media
+      cmus
       ffmpeg
       qpdf
       graphicsmagick

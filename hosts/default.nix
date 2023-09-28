@@ -7,7 +7,7 @@
 #           └─ default.nix 
 #
 
-{ lib, inputs, nixpkgs, nixpkgs-unstable, home-manager, hyprland, vars, ... }:
+{ lib, inputs, nixpkgs, nixpkgs-stable, home-manager, hyprland, vars, ... }:
 
 let
   system = "x86_64-linux"; # System Architecture
@@ -17,7 +17,7 @@ let
     config.allowUnfree = true; # Allow Proprietary Software
   };
 
-  unstable = import nixpkgs-unstable {
+  pkgs-stable = import nixpkgs-stable {
     inherit system;
     config.allowUnfree = true;
   };
@@ -29,7 +29,7 @@ in
     # Laptop Profile
     inherit system;
     specialArgs = {
-      inherit inputs unstable hyprland vars;
+      inherit inputs hyprland vars;
       host = {
         hostName = "laptop";
         mainMonitor = "eDP-1";
@@ -46,8 +46,18 @@ in
       inputs.impermanence.nixosModules.impermanence
       home-manager.nixosModules.home-manager
       {
-        home-manager.useGlobalPkgs = true;
-        home-manager.useUserPackages = true;
+        home-manager = {
+          useGlobalPkgs = true;
+          useUserPackages = true;
+          extraSpecialArgs = { inherit vars; };
+          users.${vars.user} = {
+            imports = [
+              ../home-manager
+              ../home-manager/linux.nix
+            ]
+            ++ [ inputs.hyprland.homeManagerModules.default ];
+          };
+        };
       }
     ];
   };

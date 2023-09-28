@@ -126,10 +126,9 @@
       pulsemixer
       linux-firmware
       sshpass
-      pkgs.rust-bin.stable.latest.default
       lxappearance
       imagemagick
-      pkgs.sway-contrib.grimshot
+      sway-contrib.grimshot
       grim
       simple-mtpfs
       brightnessctl
@@ -160,10 +159,15 @@
     tor.client.enable = true;
     keyd = {
       enable = true;
-      settings = {
-        main = {
-          # Maps capslock to escape when pressed and control when held
-          capslock = "overload(control, esc)";
+      keyboards = {
+        default = {
+          ids = [ "*" ];
+          settings = {
+            main = {
+              # Maps capslock to escape when pressed and control when held
+              capslock = "overload(control, esc)";
+            };
+          };
         };
       };
     };
