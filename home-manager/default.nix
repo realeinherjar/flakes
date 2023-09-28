@@ -17,5 +17,6 @@
     ./helix.nix
     ./shell
     ./gpg.nix
+    ./ssh.nix
   ];
 }
