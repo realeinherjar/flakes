@@ -10,6 +10,9 @@
     fontDir.enable = true;
     fonts = with pkgs; [
       font-awesome
+      twemoji-color-font
+      noto-fonts
+      noto-fonts-emoji
       (nerdfonts.override {
         fonts = [
           "Noto"

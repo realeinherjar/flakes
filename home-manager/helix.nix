@@ -17,7 +17,7 @@
         theme = "catppuccin_mocha";
         editor = {
           line-number = "relative";
-          mouse = false;
+          mouse = true;
           scrolloff = 8;
           rulers = [ 80 ];
           true-color = true;
