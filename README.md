@@ -1,5 +1,7 @@
 # NixOS
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
 This is paranoid build with root on `tmpfs`.
 This means that everything outside of some directories of `/etc` and some directories of `/home` will be wiped out.
 Read more about this in the [NixOs Paranoid Guide](https://xeiaso.net/blog/paranoid-nixos-2021-07-18)
