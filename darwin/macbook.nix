@@ -29,6 +29,14 @@
     localHostName = "macbook";
   };
 
+  environment.etc."hosts" = {
+    copy = true;
+    text = builtins.readFile (builtins.fetchurl {
+      url = "https://raw.githubusercontent.com/StevenBlack/hosts/master/alternates/fakenews/hosts";
+      sha256 = "2d6dbd81f8adfea68e0ed5fb32aea72b78a8ba41ee4bbb0e8882c29eb614186a";
+    });
+  };
+
   services = {
     nix-daemon.enable = true; # Auto-Upgrade Daemon
   };

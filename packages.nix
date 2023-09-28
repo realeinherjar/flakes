@@ -28,6 +28,7 @@
       bc
       jq
       just
+      broot
 
       # git
       git

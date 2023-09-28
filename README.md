@@ -1,17 +1,60 @@
 # NixOS
 
-This is a private MacOS setup.
-It uses the best practices described in the [MacOS Hardening Guide](https://github.com/ataumo/macos_hardening)
-and the [MacOS Security and Privacy Guide](https://github.com/drduh/macOS-Security-and-Privacy-Guide).
-
+These are my NixOS/MacOS setup.
 
 ## Features
 
-- TODO 1
-- TODO 2
-- TODO 3
+- Alacritty CLI-ready workflow with `tmux`, `git`, `fish`, `gpg`, `ssh`, `curl`, `rsync`,
+   and power tools like
+   `bat`, `zoxide`, `eza`, `btop`, `broot`, `fzf`, `yazi`, `ripgrep`, `fd`, `jq`,
+   `just`, `lazygit`, `gh`, and more...
+- Developer-ready languages: Nix, Rust, Go, Python, LLVM, NodeJS, and TypeScript/JavaScript.
+- Text editor with Helium enabled with the following LSPs:
 
-## Prepare your system
+  - `nil`: Nix
+  - `bash-language-server`: bash, fish, zsh, sh, ect..
+  - `rust-analyzer`: Rust
+  - `typescript-language-server`: TypeScript and JavaScript
+  - `taplo`: TOML
+  - `yaml-language-server`: YAML
+  - `ruff-lsp`: Python
+  - `marksman`: Markdown
+  - `vscode-langservers-extracted`: HTML and CSS
+
+- Catppuccin Mocha theme everywhere.
+- Nix-themed wallpaper.
+- Archival tools: `gzip`, `xz`, `zip`, `lz4`, `p7zip`, and `zstd`.
+- CLI entertainment tools: `yt-dlp`, `cmus`, `mpv`, and `ffmpeg`.
+- Publishing and content CLI tools: `qpdf`, `pandoc`, `graphicsmagick`,
+   `tectonic`, and `typst`.
+- OS-level adblocking with [`StevenBlack/hosts`](https://github.com/StevenBlack/hosts)
+   in the `/etc/hosts`.
+- Bitcoin tools such as Sparrow wallet and Bisq
+- Encrypted backup tool with Cryptomator
+- Signal messenger
+- Brave as the default browser with Tor Browser also available
+- Torrenting with Transmission
+- Docker
+- Android file transfer support
+
+## MacOS
+
+The MacOS configs are minimalist in approach
+and geared towards enhancing security and privacy.
+It uses the best practices described in the [MacOS Hardening Guide](https://github.com/ataumo/macos_hardening)
+and the [MacOS Security and Privacy Guide](https://github.com/drduh/macOS-Security-and-Privacy-Guide).
+
+MacOS specific features:
+
+- Firewall
+- Sharing disable
+- Common developer enhancements in Finder and Search
+- Dark Mode by default
+- Minimalist Dock
+- ProtonVPN
+- UTM for managing and running VMs natively
+
+### Prepare your system
 
 Before installing anything you'll need to prepare your system:
 
@@ -32,7 +75,7 @@ Before installing anything you'll need to prepare your system:
    - Privacy and Security > Apple Advertising > Disable personalized ads
    - Game Center: Disable all
 
-## How to Install
+### How to Install
 
 1. Install Nix using the [DeterminateSystems installer](https://github.com/DeterminateSystems/nix-installer#the-determinate-nix-installer):
    
@@ -52,7 +95,7 @@ Before installing anything you'll need to prepare your system:
    darwin-rebuild switch --flake .
    ``` 
 
-## How to Update
+### How to Update
 
 1. First, update the input in `flake`:
 
@@ -70,3 +113,11 @@ Before installing anything you'll need to prepare your system:
    ```bash
    darwin-rebuild switch --flake .
    ```
+
+## NixOS
+
+TODO: 
+
+## LICENSE
+
+TODO:

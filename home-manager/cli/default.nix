@@ -16,8 +16,7 @@
     ./bat.nix
     ./zoxide.nix
     ./yazi.nix
-    # ./eza.nix
-    # ./broot.nix
+    ./eza.nix
     ./btop.nix
     # ./direnv.nix
     # ./yt-dlp
