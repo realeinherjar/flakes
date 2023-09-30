@@ -1,7 +1,7 @@
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 
 {
-  programs = { yt-dlp = { enable = true; }; };
+  programs.yt-dlp.enable = true;
   home.file = {
     ".config/yt-dlp/config".text = ''
       --ignore-errors

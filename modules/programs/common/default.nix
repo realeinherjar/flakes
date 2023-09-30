@@ -2,14 +2,11 @@
   ./firefox
   ./gpg
   ./ssh
-  ./music
   ./neofetch
   ./obs-studio
-  ./resource_monitor
-  ./search
-  ./yt-dlp
   ./zathura
   ./foot
   ./transmission
   ./just
+  ./cli
 ]
