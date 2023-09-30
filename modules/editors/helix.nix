@@ -120,6 +120,11 @@
       name = "nix"
       formatter = { command = "nixpkgs-fmt" }
       auto-format = true
+
+      [[language]]
+      name = "fish"
+      formatter = { command = "fish_indent" }
+      auto-format = true
     '';
   };
 }
