@@ -1,1 +1,1 @@
-[ ./fish/fish.nix ./git.nix ./bash.nix ./tmux.nix ]
+[ ./fish ./git.nix ./bash.nix ./tmux.nix ]
