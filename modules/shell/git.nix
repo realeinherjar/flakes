@@ -8,6 +8,21 @@
         key = "0xE7ED7E35F072CA83!";
         signByDefault = true;
       };
+      ignores = [
+        # Vim/Emacs
+        "*~"
+        ".*.swp"
+        # Helix
+        ".helix/"
+        # VSCode Workspace Folder
+        ".vscode/"
+        # Rust
+        "debug/"
+        "target/"
+        # Nix
+        "result"
+        "result-*"
+      ];
       aliases = {
         acp = ''
           !f() { git add . && git commit -m "$@" && git push origin HEAD; }; f'';
