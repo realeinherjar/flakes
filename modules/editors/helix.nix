@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 
 {
   programs = {
@@ -10,7 +10,7 @@
 
         editor = {
           line-number = "relative";
-          mouse = false;
+          mouse = true;
           scrolloff = 8;
           rulers = [ 80 ];
           true-color = true;
@@ -60,58 +60,10 @@
           };
         };
       };
-      languages = {
-        language = [
-          {
-            name = "rust";
-            language-server.rust-analyzer.config.check = {
-              command = "clippy";
-            };
-            language-server.rust-analyzer.config.cargo = {
-              features = "all";
-            };
-          }
-          {
-            name = "python";
-            language-server = { command = "ruff-lsp"; };
-            formatter = {
-              command = "black";
-              args = [ "--quiet" "-" ];
-            };
-            auto-format = true;
-          }
-          {
-            name = "toml";
-            formatter = {
-              command = "taplo";
-              args = [ "fmt" "-" ];
-            };
-            auto-format = true;
-          }
-          {
-            name = "yaml";
-            language-server.yaml-language-server.config.yaml = {
-              format = { enable = true; };
-              validation = true;
-            };
-            language-server.yaml-language-server.config.yaml.schemas = {
-              "https://json.schemastore.org/github-workflow.json" = ".github/workflows/*.{yml,yaml}";
-              "https://raw.githubusercontent.com/ansible-community/schemas/main/f/ansible-tasks.json" = "roles/{tasks,handlers}/*.{yml,yaml}";
-            };
-          }
-          {
-            name = "nix";
-            formatter = { command = "nixpkgs-fmt"; };
-            auto-format = true;
-          }
-        ];
-      };
     };
   };
   home = {
     packages = with pkgs; [
-      # git
-      lazygit
       # LSPs
       nil
       nodePackages_latest.bash-language-server
@@ -132,5 +84,42 @@
       nixpkgs-fmt
       black
     ];
+    file.".config/helix/languages.toml".text = ''
+      [[language]]
+      name = "rust"
+
+      [language-server.rust-analyzer.config.check]
+      command = "clippy"
+
+      [language-server.rust-analyzer.config.cargo]
+      features = "all"
+
+      [[language]]
+      name = "python"
+      language-server = { command = "ruff-lsp" }
+      formatter = { command = "black", args = ["--quiet", "-"] }
+      auto-format = true
+
+      [[language]]
+      name = "toml"
+      formatter = { command = "taplo", args = ["fmt", "-"] }
+      auto-format = true
+
+      [[language]]
+      name = "yaml"
+
+      [language-server.yaml-language-server.config.yaml]
+      format = { enable = true }
+      validation = true
+
+      [language-server.yaml-language-server.config.yaml.schemas]
+      "https://json.schemastore.org/github-workflow.json" = ".github/workflows/*.{yml,yaml}"
+      "https://raw.githubusercontent.com/ansible-community/schemas/main/f/ansible-tasks.json" = "roles/{tasks,handlers}/*.{yml,yaml}"
+
+      [[language]]
+      name = "nix"
+      formatter = { command = "nixpkgs-fmt" }
+      auto-format = true
+    '';
   };
 }
