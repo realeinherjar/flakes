@@ -98,6 +98,7 @@ in
           ".config"
           ".local"
           ".cargo"
+          ".julia"
           ".npm-global"
           {
             directory = ".gnupg";
@@ -111,6 +112,7 @@ in
           "git"
           "dev"
           "music"
+          "videos"
         ];
         files = [
           # put files here

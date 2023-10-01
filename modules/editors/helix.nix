@@ -125,6 +125,51 @@
       name = "fish"
       formatter = { command = "fish_indent" }
       auto-format = true
+
+      [[language]]
+      name = "julia"
+      auto-format = true
+      scope = "source.julia"
+      injection-regex = "julia"
+      file-types = ["jl"]
+      roots = ["Project.toml", "Manifest.toml", "JuliaProject.toml"]
+      comment-token = "#"
+      language-server = { command = "julia", args = [
+          "--project=@helix-lsp",
+          "--startup-file=no",
+          "--history-file=no",
+          "--quiet",
+          "/home/einherjar/.local/bin/julia-lsp.jl"
+          ] }
+      indent = { tab-width = 4, unit = "    " }
     '';
+    file.".local/bin/julia-lsp.jl" = {
+      # https://uncomfyhalomacro.pl/blog/14/
+      text = ''
+        import Pkg
+        project_path = let
+            dirname(something(
+                Base.load_path_expand((
+                    p = get(ENV, "JULIA_PROJECT", nothing);
+                    isnothing(p) ? nothing : isempty(p) ? nothing : p
+                )),
+                Base.current_project(pwd()),
+                Pkg.Types.Context().env.project_file,
+                Base.active_project(),
+            ))
+        end
+        ls_install_path = joinpath(get(DEPOT_PATH, 1, joinpath(homedir(), ".julia")), "environments", "helix-lsp");
+        pushfirst!(LOAD_PATH, ls_install_path);
+        using LanguageServer;
+        popfirst!(LOAD_PATH);
+        depot_path = get(ENV, "JULIA_DEPOT_PATH", "")
+        symbol_server_path = joinpath(homedir(), ".cache", "helix", "julia_lsp_symbol_server")
+        mkpath(symbol_server_path)
+        server = LanguageServer.LanguageServerInstance(stdin, stdout, project_path, depot_path, nothing, symbol_server_path, true)
+        server.runlinter = true
+        run(server)
+      '';
+      executable = true;
+    };
   };
 }
