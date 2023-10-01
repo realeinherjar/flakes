@@ -23,7 +23,6 @@
   outputs = inputs@{ self, nixpkgs, flake-parts, agenix, ... }:
     let
       user = "einherjar";
-      domain = "valhalla";
       selfPkgs = import ./pkgs;
     in
     flake-parts.lib.mkFlake { inherit inputs; } {

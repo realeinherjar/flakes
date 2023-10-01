@@ -1,7 +1,8 @@
 { config, pkgs, user, inputs, ... }:
 
-let user = "einherjar";
-
+let
+  user = "einherjar";
+  domain = "laptop";
 in
 {
   imports = (import ../../../modules/hardware)
@@ -22,6 +23,7 @@ in
   users.users.root.initialHashedPassword =
     "$6$MaOkIaWVTcGTX0Ec$5trnAnfzqMYsoggvBbjBcP.SPxx/B1fqsQxLfKU26QMerrG0QmRnaofCT3/K0LBk9aLeiPDjledO7Sdh9yv161";
   programs.fish.enable = true;
+  networking.hostName = "${domain}";
   users.users.${user} = {
     initialHashedPassword =
       "$6$MaOkIaWVTcGTX0Ec$5trnAnfzqMYsoggvBbjBcP.SPxx/B1fqsQxLfKU26QMerrG0QmRnaofCT3/K0LBk9aLeiPDjledO7Sdh9yv161";
