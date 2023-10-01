@@ -85,6 +85,7 @@
       rar
       frp
       zathura
+      nix-index
       # custom
       bc
       gnumake
