@@ -77,6 +77,7 @@
       gdb
       killall
       nodejs
+      julia-bin
       python3
       go
       typescript
@@ -95,9 +96,10 @@
       gh
       unar
       lazydocker
-      aria
+      aria2
       tectonic
       typst
+      glow
       tor
       torsocks
       cryptomator
