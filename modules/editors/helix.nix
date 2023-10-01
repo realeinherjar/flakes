@@ -27,7 +27,7 @@
           statusline = {
             left = [ "mode" "spinner" "version-control" ];
             center = [ "file-name" ];
-            right = [ "diagnostics" "selections" "position" "file-encoding" "file-line-ending" "file-type" ];
+            right = [ "diagnostics" "selections" "position-percentage" "position" "file-encoding" "file-line-ending" "file-type" ];
             separator = "│";
             mode.normal = "NORMAL";
             mode.insert = "INSERT";
