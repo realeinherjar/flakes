@@ -56,7 +56,6 @@
     systemPackages = with pkgs; [
       git
       gnupg
-      neovim
       docker
       curl
       wget
@@ -92,6 +91,7 @@
       exfat
       parallel
       ncdu
+      du-dust
       broot
       gh
       unar

@@ -5,6 +5,7 @@
     sessionVariables = {
       SHELL = "fish";
       EDITOR = "hx";
+      VISUAL = "hx";
       BROWSER = "firefox";
       TERMINAL = "foot";
       QT_QPA_PLATFORMTHEME = "gtk3";
