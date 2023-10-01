@@ -1,4 +1,4 @@
-{ config, pkgs, lib, inputs, user, ... }:
+{ config, pkgs, lib, inputs, user, domain, ... }:
 
 {
   nixpkgs.system = "x86_64-linux";
@@ -8,7 +8,6 @@
   zramSwap.enable = true;
 
   networking = {
-    hostName = "laptop"; # Define your hostname.
     networkmanager.enable = true;
     wireguard.enable = true;
     iproute2.enable = true; # Needed for mullvad daemon
@@ -16,12 +15,6 @@
       enable = true;
       block = [ "fakenews" ];
     };
-    #hosts = {
-    #  "185.199.109.133" = [ "raw.githubusercontent.com" ];
-    #  "185.199.111.133" = [ "raw.githubusercontent.com" ];
-    #  "185.199.110.133" = [ "raw.githubusercontent.com" ];
-    #  "185.199.108.133" = [ "raw.githubusercontent.com" ];
-    # };
     firewall = {
       enable = true;
       allowedTCPPorts = [
