@@ -43,7 +43,6 @@
         };
 
       flake = {
-        overlays.default = selfPkgs.overlay;
         nixosConfigurations = (import ./hosts {
           system = "x86_64-linux";
           inherit nixpkgs self inputs user;
