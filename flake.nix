@@ -23,7 +23,6 @@
   outputs = inputs@{ self, nixpkgs, flake-parts, agenix, ... }:
     let
       user = "einherjar";
-      selfPkgs = import ./pkgs;
     in
     flake-parts.lib.mkFlake { inherit inputs; } {
       systems = [ "x86_64-linux" ];
@@ -31,7 +30,6 @@
         let
           pkgs = import nixpkgs {
             inherit system;
-            overlays = [ self.overlays.default ];
           };
         in
         {
@@ -44,7 +42,6 @@
         };
 
       flake = {
-        overlays.default = selfPkgs.overlay;
         nixosConfigurations = (import ./hosts {
           system = "x86_64-linux";
           inherit nixpkgs self inputs user;
