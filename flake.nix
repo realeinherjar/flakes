@@ -23,7 +23,6 @@
   outputs = inputs@{ self, nixpkgs, flake-parts, agenix, ... }:
     let
       user = "einherjar";
-      selfPkgs = import ./pkgs;
     in
     flake-parts.lib.mkFlake { inherit inputs; } {
       systems = [ "x86_64-linux" ];
