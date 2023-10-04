@@ -32,8 +32,7 @@ in
           };
         };
         nixpkgs = {
-          overlays = (import ../overlays)
-            ++ [ inputs.rust-overlay.overlays.default ];
+          overlays = [ inputs.rust-overlay.overlays.default ];
         };
       }
     ];
