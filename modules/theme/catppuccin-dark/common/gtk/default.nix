@@ -3,16 +3,21 @@
 {
   home.sessionVariables = { GTK_THEME = "Catppuccin-Frappe-Pink"; };
   home.pointerCursor = {
-    package = pkgs.catppuccin-cursors;
-    name = "Catppuccin-Frappe-Dark";
+    package = pkgs.catppuccin-cursors.frappeDark;
+    name = "Catppuccin-Frappe-Dark-Cursors";
     size = 16;
   };
   home.pointerCursor.gtk.enable = true;
   gtk = {
     enable = true;
     theme = {
-      name = "Catppuccin-Frappe-Pink";
-      package = pkgs.catppuccin-frappe-gtk;
+      name = "Catppuccin-Frappe-Standard-Pink-Dark";
+      package = pkgs.catppuccin-gtk.override {
+        accents = [ "pink" ]; # You can specify multiple accents here to output multiple themes 
+        # size = "compact";
+        # tweaks = [ "rimless" "black" ]; # You can also specify multiple tweaks here
+        variant = "frappe";
+      };
     };
     cursorTheme = { name = "Catppuccin-Frappe-Dark"; };
     iconTheme = {
