@@ -10,7 +10,7 @@
   networking = {
     networkmanager.enable = true;
     wireguard.enable = true;
-    iproute2.enable = true; # Needed for mullvad daemon
+    iproute2.enable = true;
     stevenblack = {
       enable = true;
       block = [ "fakenews" ];
@@ -18,7 +18,6 @@
     firewall = {
       enable = true;
       allowedTCPPorts = [
-        443 # mullvad-daemon
         51413 # transmission
       ];
       allowedUDPPorts = [
@@ -47,7 +46,6 @@
     fstrim.enable = true;
     fwupd.enable = true;
     tor.enable = true;
-    mullvad-vpn.enable = true;
   };
 
   environment = {
@@ -106,7 +104,6 @@
       cryptomator
       wireguard-tools
       openresolv
-      mullvad-vpn
       sc-im
       qpdf
       pandoc
