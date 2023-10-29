@@ -20,7 +20,7 @@
     };
   };
 
-  outputs = inputs@{ self, nixpkgs, flake-parts, agenix, ... }:
+  outputs = inputs@{ self, nixpkgs, flake-parts, nur, agenix, ... }:
     let
       user = "einherjar";
     in

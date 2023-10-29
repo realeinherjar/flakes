@@ -32,7 +32,11 @@ in
           };
         };
         nixpkgs = {
-          overlays = [ inputs.rust-overlay.overlays.default ];
+          overlays = [
+            inputs.rust-overlay.overlays.default
+            inputs.nur.overlay
+            inputs.agenix.overlays.default
+          ];
         };
       }
     ];

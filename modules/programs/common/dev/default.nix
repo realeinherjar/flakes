@@ -1,4 +1,4 @@
-{ config, lib, pkgs, inputs, ... }:
+{ config, lib, pkgs, ... }:
 
 {
   home = {
@@ -23,7 +23,7 @@
       # age
       age-plugin-yubikey
       age
-      inputs.agenix.packages.${system}.default
+      agenix
 
       # archive
       xz

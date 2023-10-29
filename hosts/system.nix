@@ -10,7 +10,6 @@
   networking = {
     networkmanager.enable = true;
     wireguard.enable = true;
-    iproute2.enable = true;
     stevenblack = {
       enable = true;
       block = [ "fakenews" ];
@@ -39,7 +38,7 @@
       enable = true;
       prunePaths = [ "/tmp" "/var/cache" "/var/lock" "/var/run" "/var/spool" ];
       interval = "hourly";
-      locate = pkgs.mlocate;
+      package = pkgs.mlocate;
       localuser = null;
     };
     openssh = { enable = false; };
