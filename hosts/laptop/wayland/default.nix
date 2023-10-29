@@ -34,8 +34,8 @@ in
       keepassxc
       tor-browser-bundle-bin
       signal-desktop
-      # sparrow # not updated frequently, get the standalone binary from the repo
-      # bisq-desktop
+      sparrow
+      bisq-desktop
       libreoffice-fresh
       qpwgraph
       playerctl
@@ -96,8 +96,6 @@ in
           ".config"
           ".local"
           ".cargo"
-          ".julia"
-          ".npm-global"
           {
             directory = ".gnupg";
             mode = "0700";
