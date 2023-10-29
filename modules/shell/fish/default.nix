@@ -51,11 +51,12 @@
       set fish_pager_color_description 6c7086
     '';
     shellAliases = {
+      devshell = "nix flake new -t 'github:numtide/devshell' .";
       e = "hx";
       g = "git";
       lg = "lazygit";
       testtor = "curl -x socks5h://localhost:9050 -s https://check.torproject.org/api/ip";
-      top = "btop";
+      top = "btm";
       vi = "hx";
       vim = "hx";
       yt = "yt-dlp --add-metadata -i --format mp4 --restrict-filenames --sponsorblock-remove all";
@@ -76,7 +77,10 @@
 
   xdg.configFile = {
     "fish/functions/einherjar.fish".source = ./functions/einherjar.fish;
+    "fish/functions/flakify.fish".source = ./functions/flakify.fish;
+    "fish/functions/find_rust.fish".source = ./functions/find_rust.fish;
     "fish/functions/man.fish".source = ./functions/man.fish;
+    "fish/functions/nixify.fish".source = ./functions/nixify.fish;
     "fish/functions/ssh-agent.fish".source = ./functions/ssh-agent.fish;
     "fish/functions/rename_metadata.fish".source = ./functions/rename_metadata.fish;
     "fish/functions/xdg-get.fish".source = ./functions/xdg-get.fish;
