@@ -6,8 +6,6 @@
       mlocate
       tree
       fd
-      mediainfo
-      exiftool
       file
     ];
   };
@@ -22,6 +20,7 @@
     ./eza.nix
     ./ncdu.nix
     ./btop.nix
+    ./bottom.nix
     ./direnv.nix
     ./lazygit.nix
     ./yt-dlp.nix

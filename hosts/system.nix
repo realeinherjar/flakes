@@ -61,7 +61,6 @@
       neofetch
       gcc
       clang
-      cargo
       detox
       p7zip
       atool
@@ -71,36 +70,21 @@
       glib
       xdg-utils
       pciutils
-      gdb
       killall
-      nodejs
-      julia-bin
-      python3
-      go
-      typescript
       socat
       zip
       rar
       frp
-      zathura
       nix-index
-      # custom
       bc
       gnumake
       exfat
-      parallel
-      du-dust
-      broot
-      gh
       unar
-      lazydocker
       aria2
       tectonic
       typst
       glow
       tor
-      torsocks
-      cryptomator
       wireguard-tools
       openresolv
       sc-im

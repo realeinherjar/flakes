@@ -12,16 +12,36 @@
         # Vim/Emacs
         "*~"
         ".*.swp"
+
         # Helix
         ".helix/"
+
         # VSCode Workspace Folder
         ".vscode/"
+
         # Rust
         "debug/"
         "target/"
+
+        # Python
+        "*.pyc"
+        "*.egg"
+        "*.out"
+        "venv/"
+        "**/**/__pycache__/"
+
         # Nix
         "result"
         "result-*"
+
+        # direnv
+        ".direnv"
+        ".envrc"
+
+        # NodeJS/Web dev
+        ".env/"
+        "node_modules"
+        ".sass-cache"
       ];
       aliases = {
         acp = ''

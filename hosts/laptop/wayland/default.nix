@@ -12,11 +12,10 @@ in
 
   age.identityPaths = [ "/home/${user}/.ssh/id_ed25519" ];
   age.secrets = {
-    einherjar.file = ../../../secrets/einherjar.age;
-    btc_onion_address.file = ../../../secrets/btc_onion_address.age;
-    btc_onion_port.file = ../../../secrets/btc_onion_port.age;
-    btc_user.file = ../../../secrets/btc_user.age;
-    btc_pass.file = ../../../secrets/btc_pass.age;
+    password.file = ../../../secrets/password.age;
+    fiatpassword.file = ../../../secrets/fiatpassword.age;
+    reserves1.file = ../../../secrets/reserves1.age;
+    reserves2.file = ../../../secrets/reserves2.age;
   };
 
   users.mutableUsers = false;
@@ -141,7 +140,6 @@ in
       pulsemixer
       linux-firmware
       sshpass
-      pkgs.rust-bin.stable.latest.default
       lxappearance
       imagemagick
       pkgs.sway-contrib.grimshot
