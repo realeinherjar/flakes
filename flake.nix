@@ -18,6 +18,10 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    arkenfox = {
+      url = "github:dwarfmaster/arkenfox-nixos";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = inputs@{ self, nixpkgs, flake-parts, nur, agenix, ... }:

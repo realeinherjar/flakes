@@ -28,7 +28,10 @@ in
           extraSpecialArgs = { inherit user; };
           users.${user} = {
             imports = [ (import ./laptop/wayland/home.nix) ]
-              ++ [ inputs.hyprland.homeManagerModules.default ];
+              ++ [
+              inputs.hyprland.homeManagerModules.default
+              inputs.arkenfox.hmModules.default
+            ];
           };
         };
         nixpkgs = {
