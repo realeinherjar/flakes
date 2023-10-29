@@ -1,1 +1,1 @@
-[ ./helix.nix ]
+[ ./helix ]
