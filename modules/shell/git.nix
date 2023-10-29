@@ -5,7 +5,7 @@
       userName = "Einherjar";
       userEmail = "realeinherjar@proton.me";
       signing = {
-        key = "0xE7ED7E35F072CA83!";
+        key = "0xDDAC7E0DD0488D36!";
         signByDefault = true;
       };
       ignores = [
@@ -64,6 +64,7 @@
         core = {
           autocrlf = "input";
           safecrlf = true;
+          sshCommand = "ssh -o IdentitiesOnly=yes -i ~/.ssh/id_ed25519-sk -F /dev/null";
         };
         pull.ff = "only";
         push = {
