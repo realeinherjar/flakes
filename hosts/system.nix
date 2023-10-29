@@ -80,17 +80,9 @@
       gnumake
       exfat
       unar
-      aria2
-      tectonic
-      typst
-      glow
       tor
       wireguard-tools
       openresolv
-      sc-im
-      qpdf
-      pandoc
-      mat2
     ];
     etc = {
       "NetworkManager/conf.d/wifi_rand_mac.conf" = {

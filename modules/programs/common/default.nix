@@ -9,5 +9,6 @@
   ./transmission
   ./cli
   ./dev
+  ./media
   ./just
 ]
