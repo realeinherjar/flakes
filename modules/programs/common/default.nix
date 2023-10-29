@@ -7,6 +7,8 @@
   ./zathura
   ./foot
   ./transmission
-  ./just
   ./cli
+  ./dev
+  ./media
+  ./just
 ]

@@ -4,6 +4,7 @@
     settings = {
       # This is an implementation of the Riseup OpenPGP Best Practices
       # https://help.riseup.net/en/security/message-security/openpgp/best-practices
+      default-key = "0xDDAC7E0DD0488D36!";
       no-emit-version = true;
       no-comments = true;
       keyid-format = "0xlong";

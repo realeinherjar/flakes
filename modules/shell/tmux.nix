@@ -87,7 +87,13 @@
         # Enables italics in tmux
         set -ga terminal-overrides ",xterm-256color*:Tc"
         set -ga terminal-overrides ",foot:Tc"
+
+        # Enable yazi image preview
+        set -g allow-passthrough on
+        set -ga update-environment TERM
+        set -ga update-environment TERM_PROGRAM
       '';
     };
   };
+  home = { packages = with pkgs; [ ueberzugpp ]; };
 }

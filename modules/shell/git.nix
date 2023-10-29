@@ -5,23 +5,43 @@
       userName = "Einherjar";
       userEmail = "realeinherjar@proton.me";
       signing = {
-        key = "0xE7ED7E35F072CA83!";
+        key = "0xDDAC7E0DD0488D36!";
         signByDefault = true;
       };
       ignores = [
         # Vim/Emacs
         "*~"
         ".*.swp"
+
         # Helix
         ".helix/"
+
         # VSCode Workspace Folder
         ".vscode/"
+
         # Rust
         "debug/"
         "target/"
+
+        # Python
+        "*.pyc"
+        "*.egg"
+        "*.out"
+        "venv/"
+        "**/**/__pycache__/"
+
         # Nix
         "result"
         "result-*"
+
+        # direnv
+        ".direnv"
+        ".envrc"
+
+        # NodeJS/Web dev
+        ".env/"
+        "node_modules"
+        ".sass-cache"
       ];
       aliases = {
         acp = ''
@@ -64,6 +84,7 @@
         core = {
           autocrlf = "input";
           safecrlf = true;
+          sshCommand = "ssh -o IdentitiesOnly=yes -i ~/.ssh/id_ed25519-sk -F /dev/null";
         };
         pull.ff = "only";
         push = {

@@ -9,12 +9,15 @@
         theme = "catppuccin";
       };
       themes = {
-        catppuccin = builtins.readFile (builtins.fetchurl {
-          url =
-            "https://github.com/catppuccin/bat/raw/main/Catppuccin-mocha.tmTheme";
-          sha256 =
-            "a8c40d2466489a68ebab3cbb222124639221bcf00c669ab45bab242cbb2783fc";
-        });
+        catppuccin = {
+          src = pkgs.fetchFromGitHub {
+            owner = "catppuccin";
+            repo = "bat";
+            rev = "ba4d16880d63e656acced2b7d4e034e4a93f74b1";
+            hash = "sha256-6WVKQErGdaqb++oaXnY3i6/GuH2FhTgK0v4TN4Y0Wbw=";
+          };
+          file = "Catppuccin-mocha.tmTheme";
+        };
       };
     };
   };

@@ -10,7 +10,7 @@
   networking = {
     networkmanager.enable = true;
     wireguard.enable = true;
-    iproute2.enable = true; # Needed for mullvad daemon
+    iproute2.enable = true;
     stevenblack = {
       enable = true;
       block = [ "fakenews" ];
@@ -18,7 +18,6 @@
     firewall = {
       enable = true;
       allowedTCPPorts = [
-        443 # mullvad-daemon
         51413 # transmission
       ];
       allowedUDPPorts = [
@@ -47,7 +46,6 @@
     fstrim.enable = true;
     fwupd.enable = true;
     tor.enable = true;
-    mullvad-vpn.enable = true;
   };
 
   environment = {
@@ -63,7 +61,6 @@
       neofetch
       gcc
       clang
-      cargo
       detox
       p7zip
       atool
@@ -73,44 +70,19 @@
       glib
       xdg-utils
       pciutils
-      gdb
       killall
-      nodejs
-      julia-bin
-      python3
-      go
-      typescript
       socat
       zip
       rar
       frp
-      zathura
       nix-index
-      # custom
       bc
       gnumake
       exfat
-      parallel
-      ncdu
-      du-dust
-      broot
-      gh
       unar
-      lazydocker
-      aria2
-      tectonic
-      typst
-      glow
       tor
-      torsocks
-      cryptomator
       wireguard-tools
       openresolv
-      mullvad-vpn
-      sc-im
-      qpdf
-      pandoc
-      mat2
     ];
     etc = {
       "NetworkManager/conf.d/wifi_rand_mac.conf" = {

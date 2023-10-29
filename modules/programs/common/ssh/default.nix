@@ -16,13 +16,18 @@
         hostname = "*.onion";
         proxyCommand = "nc -xlocalhost:9050 %h %p";
       };
-      "all" = {
-        hostname = "*";
-        forwardAgent = true;
-        forwardX11 = true;
-        identityFile = [ "~/.ssh/id_ed25519" ];
-      };
     };
+    extraConfig = ''
+      IgnoreUnknown AddKeysToAgent,UseKeychain
+      AddKeysToAgent yes
+      UseKeychain yes
+      IdentityFile ~/.ssh/id_ed25519
+      IdentityFile ~/.ssh/id_ed25519-sk
+      IdentityFile ~/.ssh/id_ed25519-sk2
+      IdentityFile ~/.ssh/id_fiat
+      IdentityFile ~/.ssh/id_fiat-sk
+      IdentityFile ~/.ssh/id_fiat-sk2
+    '';
   };
   home.file.".ssh/know_hosts".text = ''
     github.com ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOMqqnkVzrm0SdG6UOoqKLsabgH5C9okWi0dh2l9GKJl
