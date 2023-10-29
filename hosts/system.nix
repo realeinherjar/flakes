@@ -89,7 +89,6 @@
       gnumake
       exfat
       parallel
-      ncdu
       du-dust
       broot
       gh

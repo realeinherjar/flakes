@@ -20,6 +20,7 @@
     ./zoxide.nix
     ./yazi.nix
     ./eza.nix
+    ./ncdu.nix
     ./btop.nix
     ./direnv.nix
     ./lazygit.nix
