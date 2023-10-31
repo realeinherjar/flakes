@@ -72,9 +72,9 @@ in
     ];
     blacklistedKernelModules = [
       # Bluetooth
-      "btusb"
-      "bnep"
-      "bluetooth"
+      # "btusb"
+      # "bnep"
+      # "bluetooth"
       "hid_sensor_hub" # give me back by brightness keys
     ];
     consoleLogLevel = 0;
