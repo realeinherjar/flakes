@@ -39,8 +39,6 @@ in
       libreoffice-fresh
       qpwgraph
       playerctl
-      xfce.thunar
-      xfce.thunar-archive-plugin
     ]) ++ (with config.nur.repos;
       [
         # nur packages

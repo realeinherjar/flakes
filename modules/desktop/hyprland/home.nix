@@ -361,9 +361,6 @@
       windowrule=move 25%-,termfloat
       windowrule=size 960 540,termfloat
       windowrule=rounding 5,termfloat
-      windowrule=float,thunar
-      windowrule=move 25%-,thunar
-      windowrule=size 960 540,thunar
       windowrule=float,nemo
       windowrule=move 25%-,nemo
       windowrule=size 960 540,nemo
