@@ -3,7 +3,8 @@
 {
   imports = [ (import ../../../modules/desktop/hyprland/home.nix) ]
     ++ [ (import ../../../modules/virtualisation/home.nix) ]
-    ++ [ (import ../../../modules/scripts) ] ++ (import ../../../modules/shell)
+    ++ [ (import ../../../modules/scripts) ]
+    ++ (import ../../../modules/shell)
     ++ (import ../../../modules/editors)
     ++ (import ../../../modules/programs/wayland)
     ++ (import ../../../modules/theme/catppuccin-dark/wayland);
