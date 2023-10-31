@@ -57,7 +57,6 @@
       curl
       wget
       rsync
-      neofetch
       gcc
       clang
       detox

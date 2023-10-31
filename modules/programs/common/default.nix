@@ -2,7 +2,7 @@
   ./firefox
   ./gpg
   ./ssh
-  ./neofetch
+  ./fastfetch
   ./obs-studio
   ./zathura
   ./foot
