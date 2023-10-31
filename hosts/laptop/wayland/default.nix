@@ -170,20 +170,6 @@ in
       jack.enable = true;
     };
     tor.client.enable = true;
-    keyd = {
-      enable = true;
-      keyboards = {
-        default = {
-          ids = [ "*" ];
-          settings = {
-            main = {
-              # Maps capslock to escape when pressed and control when held
-              capslock = "overload(control, esc)";
-            };
-          };
-        };
-      };
-    };
   };
 
   security.rtkit.enable = true;
