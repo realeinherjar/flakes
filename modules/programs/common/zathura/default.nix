@@ -75,5 +75,4 @@
       set selection-clipboard clipboard
     '';
   };
-  home = { packages = with pkgs; [ zathura ]; };
 }

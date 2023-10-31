@@ -337,7 +337,6 @@
       #------------#
       exec-once = launch_waybar &
       exec-once = mako &
-      exec-once = border_color &
       exec-once = nm-applet --indicator &
       exec-once = blueman-applet &
       exec-once = swayidle -w timeout 300 'myswaylock -f' timeout 600 'hyprctl dispatch dpms off' resume 'hyprctl dispatch dpms on' before-sleep 'myswaylock'
@@ -362,9 +361,6 @@
       windowrule=move 25%-,termfloat
       windowrule=size 960 540,termfloat
       windowrule=rounding 5,termfloat
-      windowrule=float,thunar
-      windowrule=move 25%-,thunar
-      windowrule=size 960 540,thunar
       windowrule=float,nemo
       windowrule=move 25%-,nemo
       windowrule=size 960 540,nemo

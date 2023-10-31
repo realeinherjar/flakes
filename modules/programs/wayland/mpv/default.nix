@@ -1,7 +1,7 @@
 { lib, pkgs, user, ... }:
 
 {
-  programs = { mpv = { enable = true; }; };
+  programs.mpv.enable = true;
   home.file.".config/mpv/mpv.conf".source = ./mpv.conf;
   home.file.".config/mpv/scripts/file_browser.lua".source = builtins.fetchurl {
     url =

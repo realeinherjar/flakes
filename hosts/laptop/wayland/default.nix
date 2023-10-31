@@ -39,8 +39,6 @@ in
       libreoffice-fresh
       qpwgraph
       playerctl
-      xfce.thunar
-      xfce.thunar-archive-plugin
     ]) ++ (with config.nur.repos;
       [
         # nur packages
@@ -72,9 +70,9 @@ in
     ];
     blacklistedKernelModules = [
       # Bluetooth
-      "btusb"
-      "bnep"
-      "bluetooth"
+      # "btusb"
+      # "bnep"
+      # "bluetooth"
       "hid_sensor_hub" # give me back by brightness keys
     ];
     consoleLogLevel = 0;
@@ -170,20 +168,6 @@ in
       jack.enable = true;
     };
     tor.client.enable = true;
-    keyd = {
-      enable = true;
-      keyboards = {
-        default = {
-          ids = [ "*" ];
-          settings = {
-            main = {
-              # Maps capslock to escape when pressed and control when held
-              capslock = "overload(control, esc)";
-            };
-          };
-        };
-      };
-    };
   };
 
   security.rtkit.enable = true;

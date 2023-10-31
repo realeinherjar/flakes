@@ -1,1 +1,4 @@
-{ config, pkgs, ... }: { home = { packages = with pkgs; [ imv ]; }; }
+{ config, pkgs, ... }:
+{
+  home.packages = with pkgs; [ imv ];
+}
