@@ -1,8 +1,0 @@
-keys:
-  - &laptop BF60A6993831D40198284A3BE7ED7E35F072CA83
-
-creation_rules:
-  - path_regex: secrets/[^/]+\.yaml$
-    key_groups:
-      - pgp:
-          - *laptop

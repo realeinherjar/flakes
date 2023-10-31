@@ -6,14 +6,8 @@
     rust-overlay.url = "github:oxalica/rust-overlay";
     impermanence.url = "github:nix-community/impermanence";
     nur.url = "github:nix-community/NUR";
-    hyprpicker.url = "github:hyprwm/hyprpicker";
-    hypr-contrib.url = "github:hyprwm/contrib";
     flake-parts.url = "github:hercules-ci/flake-parts";
     agenix.url = "github:ryantm/agenix";
-    hyprland = {
-      url = "github:hyprwm/Hyprland";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";

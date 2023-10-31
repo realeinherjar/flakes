@@ -1,14 +1,17 @@
-{ config, lib, pkgs, inputs, ... }: {
+{ config, lib, pkgs, inputs, ... }:
+{
   imports = [ ../../programs/wayland/waybar/hyprland_waybar.nix ];
+
 
   programs = {
     dconf.enable = true;
     light.enable = true;
+    hyprland.enable = true;
   };
 
   environment.systemPackages = with pkgs; [
-    inputs.hypr-contrib.packages.${pkgs.system}.grimblast
-    inputs.hyprpicker.packages.${pkgs.system}.hyprpicker
+    grimblast
+    hyprpicker
     swww
     swaylock-effects
     pamixer
