@@ -1,6 +1,5 @@
 [
-  # ./docker.nix
+  ./home.nix
   ./podman.nix
   ./qemu.nix
-  # ./lxd.nix
 ]
