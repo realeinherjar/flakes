@@ -337,7 +337,6 @@
       #------------#
       exec-once = launch_waybar &
       exec-once = mako &
-      exec-once = border_color &
       exec-once = nm-applet --indicator &
       exec-once = blueman-applet &
       exec-once = swayidle -w timeout 300 'myswaylock -f' timeout 600 'hyprctl dispatch dpms off' resume 'hyprctl dispatch dpms on' before-sleep 'myswaylock'
