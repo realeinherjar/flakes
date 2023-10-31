@@ -50,7 +50,6 @@
       users.${user} = {
         directories = [
           ".cache"
-          ".npm-global"
           ".config"
           {
             directory = ".gnupg";
