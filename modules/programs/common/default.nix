@@ -1,14 +1,11 @@
 [
-  ./firefox
-  ./gpg
-  ./ssh
-  ./fastfetch
-  ./obs-studio
-  ./zathura
-  ./foot
-  ./transmission
   ./cli
   ./dev
+  ./firefox
+  ./foot
+  ./gpg
+  ./helix
   ./media
-  ./just
+  ./shell
+  ./ssh
 ]

@@ -13,9 +13,9 @@ in
     # Laptop profile
     inherit system;
     specialArgs = { inherit inputs user; };
-    modules = [
-      ./laptop/wayland # hyprland
-    ] ++ [ ./system.nix ] ++ [
+    modules = [ ./laptop/wayland ]
+      ++ [ ./system.nix ]
+      ++ [
       inputs.impermanence.nixosModules.impermanence
       inputs.nur.nixosModules.nur
       inputs.agenix.nixosModules.default
@@ -46,7 +46,12 @@ in
     # Laptop-minimal profile
     inherit system;
     specialArgs = { inherit inputs user; };
-    modules = [ ./laptop-minimal ] ++ [ ./system.nix ]
-      ++ [ inputs.impermanence.nixosModules.impermanence ];
+    modules = [ ./laptop-minimal ]
+      ++ [ ./system.nix ]
+      ++ [
+      inputs.impermanence.nixosModules.impermanence
+      inputs.nur.nixosModules.nur
+      inputs.agenix.nixosModules.default
+    ];
   };
 }
