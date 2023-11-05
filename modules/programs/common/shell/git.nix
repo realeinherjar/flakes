@@ -5,7 +5,7 @@
       userName = "Einherjar";
       userEmail = "realeinherjar@proton.me";
       signing = {
-        key = "0xDDAC7E0DD0488D36!";
+        key = "0x7D8FCB8DE55EF33F!";
         signByDefault = true;
       };
       ignores = [
