@@ -87,6 +87,8 @@ Read more about this in the [NixOs Paranoid Guide](https://xeiaso.net/blog/paran
   [`cmus`](https://cmus.github.io/),
   and [`ffmpeg`](https://ffmpeg.org/).
 - VPN support with [`wireguard`](https://www.wireguard.com/)
+- Keyboard customizations with [`keyd`](https://github.com/rvaiya/keyd):
+  Caps Lock as Escape (if tapped) and Control (if held).
 - Publishing and content CLI tools:
   [`qpdf`](https://github.com/qpdf/qpdf),
   [`pandoc`](https://pandoc.org/),
