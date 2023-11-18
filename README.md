@@ -41,6 +41,7 @@ Read more about this in the [NixOs Paranoid Guide](https://xeiaso.net/blog/paran
   [`yazi`](https://yazi-rs.github.io/),
   [`ripgrep`](https://github.com/BurntSushi/ripgrep),
   [`fd`](https://github.com/sharkdp/fd),
+  [`sd`](https://github.com/chmln/sd),
   [`jq`](https://jqlang.github.io/jq/),
   [`just`](https://just.systems/),
   [`lazygit`](https://github.com/jesseduffield/lazygit),

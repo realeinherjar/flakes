@@ -6,6 +6,7 @@
       mlocate
       tree
       fd
+      sd
       file
     ];
   };
