@@ -26,7 +26,7 @@ As the name suggest, DON'T COMMIT this file, and DELETE IT afterwards.
 To access secrets, run in the root directory of this flake:
 
 ```bash
-agenix -- -d secrets/password.age -i secrets/identities/age-yubikey-identity-*.txt
+agenix -d secrets/password.age -i secrets/identities/age-yubikey-identity-*.txt
 # or
 nix run github:ryantm/agenix -- -d secrets/password.age -i secrets/identities/age-yubikey-identity-*.txt
 ```
@@ -40,11 +40,10 @@ age-plugin-yubikey --identity
 
 ## Editing Secrets
 
-
 To edit secrets, run in the root directory of this flake:
 
 ```bash
-agenix -- -e secrets/password.age -i secrets/identities/age-yubikey-identity-*.txt
+agenix -e secrets/password.age -i secrets/identities/age-yubikey-identity-*.txt
 # or
 nix run github:ryantm/agenix -- -e secrets/password.age -i secrets/identities/age-yubikey-identity-*.txt
 ```
@@ -64,7 +63,7 @@ age-plugin-yubikey --list-all
 
 [`age` specs](https://github.com/C2SP/C2SP/blob/main/age.md) encripts files using
 a 128-bit symmetric file key with `ChaCha20-Poly1305`.
-It has tons of stars on GitHub and tons of people and organizations use it. 
+It has tons of stars on GitHub and tons of people and organizations use it.
 
 YubiKey's [Personal Identity Verification (PIV)](https://www.yubico.com/authentication-standards/smart-card/)
 uses an Elliptic Curve ECDSA P-256 key as defined in the
@@ -76,4 +75,3 @@ these YubiKey identities are "key grips",
 encoding a serial number of the YubiKey and some other identifiers,
 but no secret bits.
 It's fine to display them publicly.
-
