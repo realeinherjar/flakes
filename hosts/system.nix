@@ -43,7 +43,10 @@
     };
     openssh = { enable = false; };
     fstrim.enable = true;
-    fwupd.enable = true;
+    fwupd = {
+      enable = true;
+      extraRemotes = [ "lvfs-testing" ];
+    };
     tor.enable = true;
   };
 
