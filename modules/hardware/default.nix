@@ -1,4 +1,5 @@
 [
-  ./intel.nix
+  # ./intel.nix
+  ./amd.nix
   ./bluetooth.nix
 ]

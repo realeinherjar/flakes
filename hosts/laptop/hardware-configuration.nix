@@ -6,11 +6,6 @@
 {
   imports = [ (modulesPath + "/installer/scan/not-detected.nix") ];
 
-  boot.initrd.availableKernelModules =
-    [ "xhci_pci" "thunderbolt" "nvme" "usb_storage" "sd_mod" ];
-  boot.initrd.kernelModules = [ ];
-  boot.kernelModules = [ "kvm-intel" ];
-  boot.extraModulePackages = [ ];
 
   fileSystems."/" = {
     device = "none";
@@ -22,9 +17,6 @@
     device = "/dev/disk/by-uuid/31454764-f5c6-45c7-9f79-036f83405591";
     fsType = "btrfs";
   };
-
-  boot.initrd.luks.devices."encryptedroot".device =
-    "/dev/disk/by-uuid/44795d11-d166-49d7-89e9-62a9945e05f3";
 
   fileSystems."/boot" = {
     device = "/dev/disk/by-uuid/5835-50BF";
@@ -48,6 +40,46 @@
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
   powerManagement.cpuFreqGovernor = lib.mkDefault "powersave";
-  hardware.cpu.intel.updateMicrocode =
-    lib.mkDefault config.hardware.enableRedistributableFirmware;
+
+  # Enable AMD/Intel microcode
+  hardware.enableRedistributableFirmware = true;
+
+  # Fix WiFi speeds
+  hardware.wirelessRegulatoryDatabase = true;
+
+  # Needed for desktop environments to detect/manage display brightness
+  hardware.sensor.iio.enable = lib.mkDefault true;
+
+  boot = {
+    initrd = {
+      luks.devices."encryptedroot".device =
+        "/dev/disk/by-uuid/44795d11-d166-49d7-89e9-62a9945e05f3";
+      availableKernelModules = [
+        "xhci_pci"
+        "thunderbolt"
+        "nvme"
+        "usb_storage"
+        "sd_mod"
+      ];
+    };
+
+    # Fix TRRS headphones missing a mic
+    # https://community.frame.work/t/headset-microphone-on-linux/12387/3
+    #
+    # This is temporary until a kernel patch is submitted
+    extraModprobeConfig = ''
+      options snd-hda-intel model=dell-headset-multi
+    '';
+  };
+
+  services = {
+    auto-cpufreq.enable = true;
+    thermald.enable = true;
+    fprintd.enable = lib.mkDefault true;
+    # Custom udev rules
+    udev.extraRules = ''
+      # Ethernet expansion card support
+      ACTION=="add", SUBSYSTEM=="usb", ATTR{idVendor}=="0bda", ATTR{idProduct}=="8156", ATTR{power/autosuspend}="20"
+    '';
+  };
 }
