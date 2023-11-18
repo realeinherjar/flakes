@@ -6,6 +6,7 @@
   ./gpg
   ./helix
   ./media
+  ./nvim
   ./shell
   ./ssh
 ]
