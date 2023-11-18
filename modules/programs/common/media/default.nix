@@ -14,7 +14,7 @@
     tectonic
     typst
     mat2
-    transmission-gtk
+    transmission_4
   ];
 
   programs.obs-studio.enable = true;
