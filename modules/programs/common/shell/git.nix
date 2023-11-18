@@ -37,6 +37,8 @@
         # direnv
         ".direnv"
         ".envrc"
+        # codespell
+        ".codespellrc"
 
         # NodeJS/Web dev
         ".env/"
