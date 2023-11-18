@@ -1,6 +1,29 @@
 { config, lib, pkgs, ... }:
 
 {
+  boot = {
+    kernelModules = [ "kvm-intel" ];
+    kernelParams = [
+      "quiet"
+      "splash"
+
+      # framework specific ones
+      # Fixes a regression in s2idle, making it more power efficient than deep sleep
+      "acpi_osi=\"!Windows 2020\""
+      # For Power consumption
+      # https://kvark.github.io/linux/framework/2021/10/17/framework-nixos.html
+      "mem_sleep_default=deep"
+      # Workaround iGPU hangs
+      # https://discourse.nixos.org/t/intel-12th-gen-igpu-freezes/21768/4
+      "i915.enable_psr=1"
+      # better battery life for NVME
+      "nvme.noacpi=1"
+    ];
+
+    # This enables the brightness and airplane mode keys to work
+    # https://community.frame.work/t/12th-gen-not-sending-xf86monbrightnessup-down/20605/11
+    blacklistedKernelModules = [ "hid-sensor-hub" ];
+  };
   services = {
     tlp = {
       enable = true;
@@ -53,10 +76,16 @@
         PLATFORM_PROFILE_ON_BAT = "low-power";
       };
     };
-    auto-cpufreq.enable = true;
-    thermald.enable = true;
+
+    # Custom udev rules
+    udev.extraRules = ''
+      # Fix headphone noise when on powersave
+      # https://community.frame.work/t/headphone-jack-intermittent-noise/5246/55
+      SUBSYSTEM=="pci", ATTR{vendor}=="0x8086", ATTR{device}=="0xa0e0", ATTR{power/control}="on"
+    '';
   };
   hardware = {
+    cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
     opengl = {
       enable = true;
       extraPackages = with pkgs; [
@@ -68,9 +97,14 @@
       ];
     };
     pulseaudio.support32Bit = true;
+
+    # Mis-detected by nixos-generate-config
+    # https://github.com/NixOS/nixpkgs/issues/171093
+    # https://wiki.archlinux.org/title/Framework_Laptop#Changing_the_brightness_of_the_monitor_does_not_work
+    acpilight.enable = lib.mkDefault true;
   };
   environment = {
-    systemPackages = with pkgs; [ libva libva-utils glxinfo ];
+    systemPackages = with pkgs; [ libva libva-utils glxinfo fw-ectool ];
     variables = { LIBVA_DRIVER_NAME = "iHD"; };
   };
 }

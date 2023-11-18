@@ -1,4 +1,4 @@
-{ config, pkgs, user, inputs, ... }:
+{ config, pkgs, lib, user, inputs, ... }:
 
 let
   user = "einherjar";
@@ -47,7 +47,7 @@ in
   };
   boot = {
     supportedFilesystems = [ "ntfs" ];
-    kernelPackages = pkgs.linuxPackages_latest;
+    kernelPackages = pkgs.linuxPackages_xanmod_latest;
     loader = {
       systemd-boot = {
         enable = true;
@@ -60,14 +60,12 @@ in
       };
       timeout = 3;
     };
-    kernelParams = [
-      "quiet"
-      "splash"
-      # framework specific ones
-      "mem_sleep_default=deep" # better battery life
-      "nvme.noacpi=1" # better battery life for NVME
-      "usbcore.quirks=0bda:8156:k" # framework ethernet port not responding after sleep
-    ];
+
+    # Fix WiFi speeds
+    extraModprobeConfig = ''
+      options cfg80211 ieee80211_regdom="US"
+    '';
+
     blacklistedKernelModules = [
       # Bluetooth
       # "btusb"

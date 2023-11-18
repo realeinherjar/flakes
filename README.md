@@ -12,6 +12,7 @@ Read more about this in the [NixOs Paranoid Guide](https://xeiaso.net/blog/paran
 
 ## Features
 
+- [XanMod Kernel](https://xanmod.org/)
 - [`Hyprland`](https://github.com/hyprwm/Hyprland) Wayland window manager:
 
   - [`Waybar`](https://github.com/Alexays/Waybar) status bar.
