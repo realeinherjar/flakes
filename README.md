@@ -98,7 +98,7 @@ Read more about this in the [NixOs Paranoid Guide](https://xeiaso.net/blog/paran
   [`graphicsmagick`](http://www.graphicsmagick.org/),
   [`tectonic`](https://tectonic-typesetting.github.io/),
   and [`typst`](https://typst.app/).
-- OS-level adblocking with [`StevenBlack/hosts`](https://github.com/StevenBlack/hosts)
+- OS-level ad-blocking with [`StevenBlack/hosts`](https://github.com/StevenBlack/hosts)
   in the `/etc/hosts`.
 - Apps:
 

@@ -52,6 +52,7 @@
             space = {
               w = ":write";
               q = ":quit";
+              Q = ":quit-all!";
             };
           };
           select = {
