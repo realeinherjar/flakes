@@ -1,5 +1,11 @@
 { config, lib, pkgs, ... }:
 
+let
+  rust = pkgs.rust-bin.stable.latest.default.override {
+    targets = [ "wasm32-unknown-unknown" ];
+  };
+in
+
 {
   home.packages = with pkgs; [
     gdb
@@ -9,7 +15,7 @@
     just
     fastfetch
     # langs
-    rust-bin.stable.latest.default
+    rust
     cargo-nextest
     cargo-cache
     cargo-show-asm
